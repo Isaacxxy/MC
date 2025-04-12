@@ -6,7 +6,7 @@ import { useToast } from "@/hooks/use-toast"
 import { useRouter } from 'next/navigation'
 import { ShoppingBag } from 'lucide-react'
 import { ToastAction } from '@radix-ui/react-toast'
-import { useUser as useClerkUser } from '@clerk/nextjs';
+import { useUser as ClerkUser } from '@clerk/nextjs';
 
 interface UserContextType {
   user: User;
@@ -15,20 +15,20 @@ interface UserContextType {
   removeFromWallet: (couponId: string) => void;
   deductPoints: (amount: number) => void;
   addPoints: (amount: number) => void;
-  addToCart: (book: Book, options?: { drinks?: { drink: Drink; size: keyof Drink['sizes']; quantity: number; }[] }) => void;
-  removeFromCart: (bookId: string) => void;
-  updateCartItem: (bookId: string, updates: Partial<CartItem>) => void;
+  addToCart: (item: Book | Drink, options?: { size?: keyof Drink['sizes']; quantity?: number; drinks?: { drink: Drink; size: keyof Drink['sizes']; quantity: number; }[] }) => void;
+  removeFromCart: (itemId: string, itemType: 'book' | 'drink', size?: keyof Drink['sizes']) => void;
+  updateCartItem: (itemId: string, itemType: 'book' | 'drink', updates: Partial<Omit<CartItem, 'itemType'>>, size?: keyof Drink['sizes']) => void;
   clearCart: () => void;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined)
 
 export const UserProvider = ({ children }: { children: ReactNode }) => {
-  const { isSignedIn, user: clerkUser } = useClerkUser();
+  const { isSignedIn, user: clerkUser } = ClerkUser();
   const router = useRouter()
   const { toast } = useToast()
   const [user, setUser] = useState<User>({
-    points: 1000,
+    points: 5000,
     wallet: [],
     cart: [],
   })
@@ -62,115 +62,111 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
   }
 
   const addToCart = (
-    book: Book,
+    item: Book | Drink,
     options?: {
-      drinks?: {
-        drink: Drink;
-        size: keyof Drink['sizes'];
-        quantity: number;
-      }[];
+      size?: keyof Drink['sizes'];
+      quantity?: number;
+      drinks?: { drink: Drink; size: keyof Drink['sizes']; quantity: number; }[];
     }
   ) => {
     setUser(prev => {
-      const existingItemIndex = prev.cart.findIndex(item => item.book.id === book.id);
-
-      const toastMessage = () => {
-        let description = `"${book.title}" added to cart`;
-
-        if (options?.drinks?.length) {
-          const drinksDescription = options.drinks
-            .map(d => `${d.quantity}x ${d.drink.name} (${d.size})`)
-            .join(', ');
-          description = `"${book.title}" with ${drinksDescription}`;
-        }
-
+      if ('title' in item) {
         toast({
-          title: options?.drinks?.length ? "Book + Drinks added!" : "Book added to cart",
-          description,
-          action: (
-            <ToastAction
-              altText={'Go To Cart'}
-              onClick={() => router.push('/cart')}
-              className="flex justify-center items-center gap-2 text-sm text-nowrap font-semibold text-blue-500 bg-gray-100 hover:bg-gray-200 rounded-md px-2 py-1"
-            >
-              <ShoppingBag size={16} />
-              View Cart ({prev.cart.length + (existingItemIndex >= 0 ? 0 : 1)})
-            </ToastAction>
-          ),
+          title: "Book added to cart",
+          description: `"${item.title}" added to cart`,
+          action: <ToastAction altText="Go to cart" onClick={() => router.push('/cart')} className='flex gap-2'><p>view cart </p><ShoppingBag size={24} /></ToastAction>,
         });
-      };
 
-      if (existingItemIndex >= 0) {
-        const updatedCart = [...prev.cart];
-        const existingItem = updatedCart[existingItemIndex];
-
-        updatedCart[existingItemIndex] = {
-          ...existingItem,
-          quantity: existingItem.quantity + 1,
-          selectedDrinks: options?.drinks
-            ? [...(existingItem.selectedDrinks || []), ...options.drinks]
-            : existingItem.selectedDrinks
-        };
-
-        toastMessage();
         return {
           ...prev,
-          cart: updatedCart
+          cart: [
+            ...prev.cart,
+            {
+              itemType: 'book',
+              book: item,
+              quantity: options?.quantity || 1,
+            },
+          ],
         };
       }
 
-      toastMessage();
-      return {
-        ...prev,
-        cart: [...prev.cart, {
-          book,
-          quantity: 1,
-          selectedDrinks: options?.drinks || []
-        }]
-      };
+      else {
+        if (!options?.size) {
+          console.error('Size is required for drinks');
+          return prev;
+        }
+        return {
+          ...prev,
+          cart: [
+            ...prev.cart,
+            {
+              itemType: 'drink',
+              drink: item,
+              size: options.size,
+              quantity: options?.quantity || 1,
+            },
+          ],
+        };
+      }
     });
   };
 
-  const updateCartItem = (bookId: string, updates: Partial<CartItem>) => {
+  const removeFromCart = (itemId: string, itemType: 'book' | 'drink', size?: keyof Drink['sizes']) => {
     setUser(prev => ({
       ...prev,
-      cart: prev.cart.map(item =>
-        item.book.id === bookId ? { ...item, ...updates } : item
-      ),
-    }))
-  }
+      cart: prev.cart.filter(item => {
+        if (itemType === 'book') {
+          return !(item.itemType === 'book' && item.book.id === itemId);
+        } else {
+          return !(item.itemType === 'drink' && item.drink.id === Number(itemId) && item.size === size);
+        }
+      }),
+    }));
+  };
 
-  const removeFromCart = (bookId: string) => {
+  const updateCartItem = (
+    itemId: string,
+    itemType: 'book' | 'drink',
+    updates: Partial<Omit<CartItem, 'itemType'>>,
+    size?: keyof Drink['sizes']
+  ) => {
     setUser(prev => ({
       ...prev,
-      cart: prev.cart.filter(item => item.book.id !== bookId),
-    }))
-  }
+      cart: prev.cart.map(item => {
+        if (itemType === 'book' && item.itemType === 'book' && item.book.id === itemId) {
+          return { ...item, ...updates };
+        } else if (itemType === 'drink' && item.itemType === 'drink' && item.drink.id === Number(itemId) && item.size === size) {
+          return { ...item, ...updates };
+        }
+        return item;
+      }),
+    }));
+  };
 
   const clearCart = () => {
-    const pointsEarned = user.cart.reduce((sum, item) => {
-      if (item.selectedDrinks) {
-        return sum + item.selectedDrinks.reduce(
-          (drinkSum, selection) => drinkSum + ((selection.drink.sizes[selection.size]?.points ?? 0) * selection.quantity),
-          0
-        )
+    setUser(prev => {
+      const pointsEarned = prev.cart.reduce((sum, item) => {
+        if (item.itemType === 'drink') {
+          const drinkPoints = item.drink.sizes[item.size]?.points ?? 0;
+          return sum + (drinkPoints * item.quantity);
+        }
+        return sum;
+      }, 0);
+
+      if (pointsEarned > 0) {
+        toast({
+          title: `🎉 ${pointsEarned} points earned!`,
+          description: "You can now redeem them for discounts",
+        });
       }
-      return sum
-    }, 0)
 
-    if (pointsEarned > 0) {
-      toast({
-        title: `🎉 ${pointsEarned} points earned!`,
-        description: "You can now redeem them for discounts",
-      })
-    }
-
-    setUser(prev => ({
-      ...prev,
-      cart: [],
-      points: prev.points + pointsEarned
-    }))
-  }
+      return {
+        ...prev,
+        cart: [],
+        points: prev.points + pointsEarned
+      };
+    });
+  };
 
   return (
     <UserContext.Provider

@@ -122,10 +122,10 @@ export const FloatingNav = ({
                 </div>
               </div>)}
             {!userId && (
-              <>
+              <div className="flex flex-row gap-2">
                 <Button onClick={() => router.push('/sign-in')} size='sm' className="">Sign in</Button>
                 <Button onClick={() => router.push('/sign-up')} size='sm' className="">Sign up</Button>
-              </>
+              </div>
             )}
           </div>
         </motion.div>

@@ -1,20 +1,23 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   useStripe,
   useElements,
   PaymentElement,
 } from "@stripe/react-stripe-js";
 import convertToSubcurrency from "@/lib/convertToSubcurrency";
-import Loader from "./ui/loading";
+import { useUser } from "@/context/UserContext";
 
-const CheckoutPage = ({ amount }: { amount: number }) => {
+const CheckoutPage = ({ amount, appliedCouponId }: { amount: number, appliedCouponId?: string | null }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [errorMessage, setErrorMessage] = useState<string>();
   const [clientSecret, setClientSecret] = useState("");
   const [loading, setLoading] = useState(false);
+  const { user, removeFromWallet } = useUser();
+  const router = useRouter();
 
   useEffect(() => {
     fetch("/api/create-payment-intent", {
@@ -44,24 +47,28 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
       return;
     }
 
-    const { error } = await stripe.confirmPayment({
-      elements,
-      clientSecret,
-      confirmParams: {
-        return_url: `http://www.localhost:3000/payment-success?amount=${amount}`,
-      },
-    });
+    // const { error } = await stripe.confirmPayment({
+    //   elements,
+    //   clientSecret,
+    //   confirmParams: {
+    //     return_url: `http://www.localhost:3000/payment-success`,
+    //   },
+    // });
 
-    if (error) {
-      // This point is only reached if there's an immediate error when
-      // confirming the payment. Show the error to your customer (for example, payment details incomplete)
-      setErrorMessage(error.message);
-    } else {
-      // The payment UI automatically closes with a success animation.
-      // Your customer is redirected to your `return_url`.
-    }
+    // if (error) {
+    //   // This point is only reached if there's an immediate error when
+    //   // confirming the payment. Show the error to your customer (for example, payment details incomplete)
+    //   setErrorMessage(error.message);
+    // } else {
+    //   // The payment UI automatically closes with a success animation.
+    //   // Your customer is redirected to your `return_url`.
+    // }
 
+    router.push(`/payment-success?amount=${amount}`);
     setLoading(false);
+    appliedCouponId &&
+      removeFromWallet(appliedCouponId);
+
   };
 
   if (!clientSecret || !stripe || !elements) {
@@ -80,14 +87,14 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-2 rounded-md">
-      {clientSecret && <PaymentElement />}
+    <form onSubmit={handleSubmit} className="bg-white rounded-md h-full w-full flex  flex-col justify-center items-center gap-5">
+      {clientSecret && <PaymentElement className="w-full h-full" />}
 
       {errorMessage && <div>{errorMessage}</div>}
 
       <button
         disabled={!stripe || loading}
-        className="text-white w-full p-5 bg-black mt-2 rounded-md font-bold disabled:opacity-50 disabled:animate-pulse"
+        className="text-white w-fit mx-auto p-5 bg-black mt-2 rounded-md font-bold disabled:opacity-50 disabled:animate-pulse"
       >
         {!loading ? `Pay $${amount}` : "Processing..."}
       </button>

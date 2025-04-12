@@ -1,11 +1,15 @@
+'use client'
 import React from 'react'
 import { DotBackgroundDemo } from '@/components/ui/dotBackground'
-import Image from 'next/image'
 import { Playfair_Display } from "next/font/google";
+import { useRouter, usePathname } from 'next/navigation'
 const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400", "700"] });
 
+
 const Footer = () => {
+  const pathname = usePathname();
   return (
+    // {pathname === "/" &&
     <div className='w-[80%] mx-auto flex flex-col justify-between relative pb-0 rounded-lg border border-[#824124] overflow-hidden my-20'>
       <DotBackgroundDemo className='-z-20 absolute h-full ' Container />
       <div className='flex xl:flex-row flex-col '>
@@ -43,6 +47,7 @@ const Footer = () => {
         </div>
       </div>
     </div>
+    // }
   )
 }
 

@@ -2,7 +2,7 @@
 import { cn } from "@/lib/utils";
 import React, { useState } from "react";
 import { FloatingNav } from "../ui/floating-navbar";
-import { IconBook, IconCoffee, IconHome, IconInfoCircle } from "@tabler/icons-react";
+import { IconCoffee, IconHome, IconInfoCircle } from "@tabler/icons-react";
 import { IoPricetagOutline } from "react-icons/io5";
 import { LibraryBig } from "lucide-react";
 

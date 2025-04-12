@@ -151,7 +151,6 @@ export const DrinkSelector = ({ drinks, onSelectionsChange }: DrinkSelectorProps
             </span>
           </div>
         </div>
-
       )}
     </div>
   )

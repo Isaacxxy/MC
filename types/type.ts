@@ -79,11 +79,13 @@ export type Row = {
 
 export type Coupon = {
   id: string;
-  imageUrl: string;
   title: string;
   pointsRequired: number;
   discount: number;
   status: string;
+  barcode: string;
+  bgTop: string;
+  bgBottom: string;
 };
 
 export type RowProp = {
@@ -107,12 +109,15 @@ export type ImagesCarousel = {
   alt: string;
 };
 
-export type CartItem = {
-  book: Book;
-  quantity: number;
-  selectedDrinks?: {
-    drink: Drink;
-    size: keyof Drink["sizes"];
-    quantity: number;
-  }[];
-};
+export type CartItem =
+  | {
+      itemType: "book";
+      book: Book;
+      quantity: number;
+    }
+  | {
+      itemType: "drink";
+      drink: Drink;
+      size: keyof Drink["sizes"];
+      quantity: number;
+    };

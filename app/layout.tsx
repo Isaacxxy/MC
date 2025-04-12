@@ -8,12 +8,6 @@ import {
 import Footer from "@/components/layout/Footer";
 import { UserProvider } from "@/context/UserContext";
 import { Toaster } from "@/components/ui/toaster";
-import { AppSidebar } from "@/components/app-sidebar"
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -46,16 +40,10 @@ export default function RootLayout({
           className={`"w-full bg-white ${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <UserProvider>
-            {/* <SidebarProvider defaultOpen={false}>
-              <SidebarInset> */}
             <Navbar />
             {children}
             <Toaster />
             <Footer />
-            {/* <SidebarTrigger className="sticky  bottom-3 right-0 ml-auto rotate-180" />
-              </SidebarInset>
-              <AppSidebar side="bottom" />
-            </SidebarProvider> */}
           </UserProvider>
         </body>
       </html>

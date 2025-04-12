@@ -7,7 +7,7 @@ import { useToast } from "@/hooks/use-toast"
 import { ShoppingBag, X } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Book as BookType } from '@/types/type'
-import { Card, CardHeader, CardContent, CardFooter } from './ui/card'
+import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
 import Rating from "@mui/material/Rating"
 
 interface BookCardProps {
@@ -20,7 +20,9 @@ const BookCard = ({ book }: BookCardProps) => {
   const [isAnimating, setIsAnimating] = useState(false)
   const [animationType, setAnimationType] = useState<'add' | 'exists'>('add')
 
-  const cartItem = user.cart.find(item => item.book.id === book.id)
+  const cartItem = user.cart.find(item =>
+    item.itemType === 'book' && item.book.id === book.id
+  )
   const quantityInCart = cartItem?.quantity || 0
 
   const handleAddToCart = () => {
@@ -41,30 +43,33 @@ const BookCard = ({ book }: BookCardProps) => {
   }
 
   return (
-    <Card className="w-full shadow-lg rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 my-8 relative">
-      <CardHeader className="flex justify-center select-none">
+    <Card className="w-[280px] shadow-lg rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 my-8 relative">
+      <CardHeader className="flex justify-center items-center select-none p-4">
         <img
           src={book.imagePath}
           alt={`${book.title} cover`}
-          className="rounded-lg object-center w-full h-[400px]"
+          className="rounded-lg object-center w-auto h-[300px]"
         />
       </CardHeader>
 
-      <CardContent className="text-start select-none">
-        <h1 className="font-semibold text-lg line-clamp-1">{book.title}</h1>
-        <p className="text-sm text-gray-500">{book.author}</p>
+      <CardContent className="flex justify-between items-start gap-10 text-start select-none p-4">
+        <div>
+          <h1 className="font-bold line-clamp-1">{book.title}</h1>
+          <p className="text-sm text-gray-500 line-clamp-1">{book.author}</p>
+        </div>
         <div className="mt-2 flex justify-start">
           <Rating
             name="half-rating-read"
             defaultValue={book.rating}
             precision={0.5}
             readOnly
+            size="small"
           />
         </div>
       </CardContent>
 
-      <CardFooter className="flex justify-between gap-10 items-center px-4 pb-4 select-none">
-        <span className="text-lg font-bold text-green-600">${book.price}</span>
+      <CardFooter className="flex justify-between gap-10 items-center p-4 select-none">
+        <span className="font-bold text-green-600">${book.price}</span>
         <motion.div
           whileTap={{ scale: 0.95 }}
           onAnimationComplete={() => setIsAnimating(false)}
@@ -72,9 +77,9 @@ const BookCard = ({ book }: BookCardProps) => {
           <Button
             variant={quantityInCart > 0 ? "secondary" : "default"}
             onClick={handleAddToCart}
-            className="flex gap-2 items-center relative"
+            className="flex gap-1 items-center relative text-xs w-fit p-2 h-fit"
           >
-            <ShoppingBag size={20} />
+            <ShoppingBag size={16} />
             {quantityInCart > 0 ? (
               <span className="ml-2">{quantityInCart} in the cart</span>
             ) : (
