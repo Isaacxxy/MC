@@ -54,8 +54,7 @@ export const FloatingNav = ({
       window.removeEventListener("scroll", handleScroll);
     };
   }, [scrollPosition]);
-
-
+  if (pathname === '/payment-success') return;
   return (
     <div className={`${scrollPosition === 0
       ? "z-[500] fixed top-0 w-full bg-transparent border-b border-transparent"

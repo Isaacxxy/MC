@@ -365,40 +365,6 @@ export default function Home() {
         </div>
 
       </div>
-
-      {/* <div className='w-full'>
-        <div className='flex flex-col justify-center items-center gap-4 text-center'>
-          <h1 className='text-lg font-medium'>You can check your wallet 👛 to see if you have any coupons 🎟 available for discount on your purchase 🛒</h1>
-          <button
-            onClick={() => { }}
-            className={`flex items-center gap-2 bg-green-800 hover:bg-[#5a7d63] text-white p-3 rounded-lg shadow-md transition-colors duration-300 text-sm`}
-          >
-            <GiWallet className="w-5 h-5" />
-            Open My Wallet
-          </button>
-        </div>
-        {user.wallet.length > 0 && (
-          <div className=''>
-            {user.wallet.map((coupon) => (
-              <div>
-                {coupon.title} - {coupon.pointsRequired} points - {coupon.discount} % off
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-      <div className='w-full'>
-        <Elements
-          stripe={stripePromise}
-          options={{
-            mode: "payment",
-            amount: convertToSubcurrency(parseFloat(amount) === 0 ? parseFloat('20') : parseFloat(amount)),
-            currency: "usd",
-          }}
-        >
-          <CheckoutPage amount={parseFloat(amount) === 0 ? parseFloat('20') : parseFloat(amount)} />
-        </Elements>
-      </div> */}
     </main >
   );
 }
