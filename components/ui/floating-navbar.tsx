@@ -12,8 +12,17 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Playfair_Display } from "next/font/google";
 import { GiCoffeeBeans } from "react-icons/gi";
-import { CirclePlus, ShoppingBag, Search } from "lucide-react";
+import { CirclePlus, ShoppingBag, Search, Bell, CircleUser } from "lucide-react";
 import { useUser } from '@/context/UserContext'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 
 
 
@@ -105,7 +114,28 @@ export const FloatingNav = ({
                 )}
               </div>
               {userId && (
-                <CirclePlus size={24} className={`cursor-pointer ${pathname === "/" ? "text-zinc-100 hover:text-neutral-300" : "text-black hover:text-neutral-500"}`} />
+                <div className="flex justify-center items-center gap-2">
+                  <Dialog>
+                    <DialogTrigger className={`cursor-pointer ${pathname === "/" ? "text-zinc-100 hover:text-neutral-300" : "text-black hover:text-neutral-500"}`}>
+                      <Bell size={24} className={`cursor-pointer ${pathname === "/" ? "text-zinc-100 hover:text-neutral-300" : "text-black hover:text-neutral-500"}`} />
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[425px] w-[50%]">
+                      <DialogHeader>
+                        <DialogTitle>Notifications</DialogTitle>
+                      </DialogHeader>
+                      <div className="flex flex-col gap-2">
+                        <div className="flex gap-2 justify-start items-center">
+                          <CircleUser />
+                          <p className="font-semibold">
+                            Your order has been shipped
+                          </p>
+                        </div>
+                      </div>
+                    </DialogContent>
+
+                  </Dialog>
+                  <CirclePlus size={24} className={`cursor-pointer ${pathname === "/" ? "text-zinc-100 hover:text-neutral-300" : "text-black hover:text-neutral-500"}`} />
+                </div>
               )}
             </div>
             {userId && (

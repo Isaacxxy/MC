@@ -121,3 +121,5 @@ export type CartItem =
       size: keyof Drink["sizes"];
       quantity: number;
     };
+
+export type Notification = {};
