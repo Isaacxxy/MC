@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { useRouter, usePathname } from 'next/navigation'
-import { useAuth, UserButton } from '@clerk/nextjs'
+import { SignInButton, SignUpButton, useAuth, UserButton } from '@clerk/nextjs'
 import {
   motion,
   AnimatePresence,
@@ -63,7 +63,7 @@ export const FloatingNav = ({
       window.removeEventListener("scroll", handleScroll);
     };
   }, [scrollPosition]);
-  if (pathname === '/payment-success') return;
+  if (pathname === '/payment-success' || pathname.startsWith('/library/')) return;
   return (
     <div className={`${scrollPosition === 0
       ? "z-[500] fixed top-0 w-full bg-transparent border-b border-transparent"
@@ -152,8 +152,14 @@ export const FloatingNav = ({
               </div>)}
             {!userId && (
               <div className="flex flex-row gap-2">
-                <Button onClick={() => router.push('/sign-in')} size='sm' className="">Sign in</Button>
-                <Button onClick={() => router.push('/sign-up')} size='sm' className="">Sign up</Button>
+                <div className="bg-black text-white text-sm p-2 rounded-lg">
+                  <SignInButton forceRedirectUrl={pathname} mode="redirect">
+                    Login
+                  </SignInButton>
+                </div>
+                <div className="bg-black text-white text-sm p-2 rounded-lg">
+                  <SignUpButton forceRedirectUrl="/" mode="redirect">Sign up</SignUpButton>
+                </div>
               </div>
             )}
           </div>
@@ -163,3 +169,6 @@ export const FloatingNav = ({
 
   );
 };
+//TODO: Add a search bar here
+//TODO: commande UI
+//TODO: ptr le filtrage

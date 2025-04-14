@@ -74,7 +74,6 @@ const CartPage = () => {
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-4">
-            {/* Section Livres */}
             {bookItems.length > 0 && (
               <div className="space-y-4">
                 {bookItems.map((item) => (
@@ -135,7 +134,6 @@ const CartPage = () => {
               </div>
             )}
 
-            {/* Section Boissons */}
             {drinkItems.length > 0 && (
               <div className="space-y-4 mt-8">
                 <h2 className="text-xl font-semibold">Drinks</h2>
@@ -215,9 +213,15 @@ const CartPage = () => {
             </div>
             <Dialog>
               <DialogTrigger asChild>
-                <Button className="w-full mt-6" size="lg">
-                  Place Order
-                </Button>
+                <div className={`${!isSignedIn ? "cursor-not-allowed" : "cursor-pointer"}`}>
+                  <Button
+                    className={`w-full mt-6`}
+                    size="lg"
+                    disabled={!isSignedIn}
+                  >
+                    Place Order
+                  </Button>
+                </div>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader className='space-y-4'>

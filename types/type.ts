@@ -26,6 +26,7 @@ export type Book = {
     | "Young Adult"
     | "Children's Literature";
   isSold?: boolean;
+  reviews?: { user: string | "anonyme"; comment: string; rating: number }[];
 };
 
 export type Drink = {
@@ -69,7 +70,6 @@ export type Drink = {
   imageUrl: string;
   temperature: "hot" | "cold";
   rating?: number;
-  reviews?: { user: string; comment: string; rating: number }[];
 };
 
 export type Row = {

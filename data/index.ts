@@ -21,6 +21,10 @@ export const books: Book[] = [
     isValid: true,
     category: "Science Fiction",
     isSold: false,
+    reviews: [
+      { user: "isaac", comment: "good book", rating: 4.5 },
+      { user: "ghiles", comment: "bad book", rating: 1.5 },
+    ],
   },
   {
     id: "2",

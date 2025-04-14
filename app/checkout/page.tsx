@@ -225,7 +225,7 @@ export default function Home() {
               </DialogFooter>
             </DialogContent>
           </Dialog>
-          <Dialog>
+          <Dialog >
             <DialogTrigger asChild>
               <div className='bg-[#F9FAFB] rounded-[18px] p-4 border border-[#E1E1E1] shadow-[0px_37px_10px_0px_rgba(0,0,0,0.00),_0px_24px_10px_0px_rgba(0,0,0,0.01),_0px_13px_8px_0px_rgba(0,0,0,0.02),_0px_6px_6px_0px_rgba(0,0,0,0.03),_0px_1px_3px_0px_rgba(0,0,0,0.04)] cursor-pointer'>
                 <div className='space-y-4 rounded-xl p-4 border border-[#E1E1E1] bg-white h-[320px]'>

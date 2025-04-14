@@ -9,6 +9,7 @@ import { motion } from 'framer-motion'
 import { Book as BookType } from '@/types/type'
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
 import Rating from "@mui/material/Rating"
+import { useRouter } from 'next/navigation'
 
 interface BookCardProps {
   book: BookType
@@ -19,6 +20,8 @@ const BookCard = ({ book }: BookCardProps) => {
   const { user, addToCart } = useUser()
   const [isAnimating, setIsAnimating] = useState(false)
   const [animationType, setAnimationType] = useState<'add' | 'exists'>('add')
+  const [isOpen, setIsOpen] = useState(false)
+  const router = useRouter();
 
   const cartItem = user.cart.find(item =>
     item.itemType === 'book' && item.book.id === book.id
@@ -44,7 +47,7 @@ const BookCard = ({ book }: BookCardProps) => {
 
   return (
     <Card className="w-[280px] shadow-lg rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 my-8 relative">
-      <CardHeader className="flex justify-center items-center select-none p-4">
+      <CardHeader className="flex justify-center items-center select-none p-4 cursor-pointer" onClick={() => router.push(`/library/${book.id}`)}>
         <img
           src={book.imagePath}
           alt={`${book.title} cover`}
@@ -52,8 +55,8 @@ const BookCard = ({ book }: BookCardProps) => {
         />
       </CardHeader>
 
-      <CardContent className="flex justify-between items-start gap-10 text-start select-none p-4">
-        <div>
+      <CardContent className="flex justify-between items-start gap-10 text-start select-none p-4" onClick={() => router.push(`/library/${book.id}`)}>
+        <div className='cursor-pointer'>
           <h1 className="font-bold line-clamp-1">{book.title}</h1>
           <p className="text-sm text-gray-500 line-clamp-1">{book.author}</p>
         </div>
@@ -67,7 +70,6 @@ const BookCard = ({ book }: BookCardProps) => {
           />
         </div>
       </CardContent>
-
       <CardFooter className="flex justify-between gap-10 items-center p-4 select-none">
         <span className="font-bold text-green-600">${book.price}</span>
         <motion.div

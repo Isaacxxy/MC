@@ -6,7 +6,7 @@ import { useToast } from "@/hooks/use-toast"
 import { useRouter } from 'next/navigation'
 import { ShoppingBag } from 'lucide-react'
 import { ToastAction } from '@radix-ui/react-toast'
-import { useUser as ClerkUser } from '@clerk/nextjs';
+// import { useUser as ClerkUser } from '@clerk/nextjs';
 
 interface UserContextType {
   user: User;
@@ -24,7 +24,7 @@ interface UserContextType {
 const UserContext = createContext<UserContextType | undefined>(undefined)
 
 export const UserProvider = ({ children }: { children: ReactNode }) => {
-  const { isSignedIn, user: clerkUser } = ClerkUser();
+  // const { isSignedIn, user: clerkUser } = ClerkUser();
   const router = useRouter()
   const { toast } = useToast()
   const [user, setUser] = useState<User>({

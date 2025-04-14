@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 import { Drink } from '@/types/type'
-import { X } from 'lucide-react';
+import { NotebookTabsIcon, X } from 'lucide-react';
 import { drinks } from '@/data/index'
 import { Playfair_Display } from "next/font/google";
 import {
