@@ -1,24 +1,20 @@
 "use client";
 import React, { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
 import { useRouter, usePathname } from 'next/navigation'
 import { SignInButton, SignUpButton, useAuth, UserButton } from '@clerk/nextjs'
 import {
   motion,
   AnimatePresence,
-  useScroll,
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Playfair_Display } from "next/font/google";
 import { GiCoffeeBeans } from "react-icons/gi";
-import { CirclePlus, ShoppingBag, Search, Bell, CircleUser } from "lucide-react";
+import { CirclePlus, ShoppingBag, Bell, CircleUser } from "lucide-react";
 import { useUser } from '@/context/UserContext'
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -63,7 +59,7 @@ export const FloatingNav = ({
       window.removeEventListener("scroll", handleScroll);
     };
   }, [scrollPosition]);
-  if (pathname === '/payment-success' || pathname.startsWith('/library/')) return;
+  if (pathname === '/payment-success' || pathname === '/profile' || pathname.startsWith('/profile') || pathname.startsWith('/library/')) return;
   return (
     <div className={`${scrollPosition === 0
       ? "z-[500] fixed top-0 w-full bg-transparent border-b border-transparent"

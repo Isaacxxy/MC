@@ -8,7 +8,7 @@ const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400", "700"] }
 
 const Footer = () => {
   const pathname = usePathname();
-  if (pathname === '/payment-success' || pathname.startsWith('/library/')) return null;
+  if (pathname === '/payment-success' || pathname === '/profile' || pathname.startsWith('/profile/') || pathname.startsWith('/library/')) return;
   return (
 
     <div className='w-[80%] mx-auto flex flex-col justify-between relative pb-0 rounded-lg border border-[#824124] overflow-hidden my-20'>

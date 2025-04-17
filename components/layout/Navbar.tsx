@@ -3,8 +3,9 @@ import { cn } from "@/lib/utils";
 import React, { useState } from "react";
 import { FloatingNav } from "../ui/floating-navbar";
 import { IconCoffee, IconHome, IconInfoCircle } from "@tabler/icons-react";
-import { IoPricetagOutline } from "react-icons/io5";
-import { LibraryBig } from "lucide-react";
+import { LibraryBig, Tags, User } from "lucide-react";
+import { useAuth } from "@clerk/nextjs";
+
 
 
 
@@ -17,40 +18,48 @@ export default function Navbar({
 
 ) {
   const [active, setActive] = useState<string | null>(null);
-
-  const navItems = [
+  const { userId } = useAuth()
+  const allNavItems = [
     {
       name: "Home",
       link: "/",
-      icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      icon: <IconHome />,
     },
     {
       name: "Library",
       link: "/library",
-      icon: <LibraryBig className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      icon: <LibraryBig />,
     },
     {
       name: "Beverages",
       link: "/beverages",
       icon: (
-        <IconCoffee className="h-4 w-4 text-neutral-500 dark:text-white" />
+        <IconCoffee />
       ),
     },
     {
       name: "Rewards",
       link: "/rewards",
       icon: (
-        <IoPricetagOutline className="h-4 w-4 text-neutral-500 dark:text-white" />
+        <Tags />
+      ),
+    },
+    {
+      name: "Profile",
+      link: "/profile",
+      icon: (
+        <User />
       ),
     },
     {
       name: "About Us",
       link: "/aboutUs",
       icon: (
-        <IconInfoCircle className="h-4 w-4 text-neutral-500 dark:text-white" />
+        <IconInfoCircle />
       ),
     },
   ];
+  const navItems = allNavItems.filter(item => userId || item.name !== "Profile");
 
   return (
     <div className={cn("relative", className2)}>
