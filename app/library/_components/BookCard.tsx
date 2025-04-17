@@ -1,62 +1,72 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import { Button } from "@/components/ui/button"
-import { useUser } from "@/context/UserContext"
-import { useToast } from "@/hooks/use-toast"
-import { ShoppingBag, X } from 'lucide-react'
-import { motion } from 'framer-motion'
-import { Book as BookType } from '@/types/type'
-import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
-import Rating from "@mui/material/Rating"
-import { useRouter } from 'next/navigation'
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { useUser } from "@/context/UserContext";
+import { useToast } from "@/hooks/use-toast";
+import { ShoppingBag, X } from "lucide-react";
+import { motion } from "framer-motion";
+import { Book as BookType } from "@/types/type";
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
+import Rating from "@mui/material/Rating";
+import { useRouter } from "next/navigation";
 
 interface BookCardProps {
-  book: BookType
+  book: BookType;
 }
 
 const BookCard = ({ book }: BookCardProps) => {
-  const { toast } = useToast()
-  const { user, addToCart } = useUser()
-  const [isAnimating, setIsAnimating] = useState(false)
-  const [animationType, setAnimationType] = useState<'add' | 'exists'>('add')
-  const [isOpen, setIsOpen] = useState(false)
+  const { toast } = useToast();
+  const { user, addToCart } = useUser();
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [animationType, setAnimationType] = useState<"add" | "exists">("add");
   const router = useRouter();
 
-  const cartItem = user.cart.find(item =>
-    item.itemType === 'book' && item.book.id === book.id
-  )
-  const quantityInCart = cartItem?.quantity || 0
+  const cartItem = user.cart.find(
+    (item) => item.itemType === "book" && item.book.idBook === book.idBook
+  );
+  const quantityInCart = cartItem?.quantity || 0;
 
   const handleAddToCart = () => {
-    setIsAnimating(true)
-    const isAlreadyInCart = quantityInCart > 0
+    setIsAnimating(true);
+    const isAlreadyInCart = quantityInCart > 0;
 
     if (isAlreadyInCart) {
-      setAnimationType('exists')
+      setAnimationType("exists");
       toast({
         variant: "destructive",
         title: "Already in cart",
         description: "This book is already added.",
-      })
+      });
     } else {
-      setAnimationType('add')
-      addToCart(book)
+      setAnimationType("add");
+      addToCart(book);
     }
-  }
+  };
 
   return (
-    <Card className="w-[280px] shadow-lg rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 my-8 relative">
-      <CardHeader className="flex justify-center items-center select-none p-4 cursor-pointer" onClick={() => router.push(`/library/${book.id}`)}>
+    <Card className="w-full shadow-lg rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 my-8 relative">
+      <CardHeader
+        className="flex justify-center items-center select-none p-4 cursor-pointer"
+        onClick={() => router.push(`/library/${book.idBook}`)}
+      >
         <img
-          src={book.imagePath}
+          src={book.imageUrl}
           alt={`${book.title} cover`}
           className="rounded-lg object-center w-auto h-[300px]"
         />
       </CardHeader>
 
-      <CardContent className="flex justify-between items-start gap-10 text-start select-none p-4" onClick={() => router.push(`/library/${book.id}`)}>
-        <div className='cursor-pointer'>
+      <CardContent
+        className="flex justify-between items-start gap-10 text-start select-none p-4"
+        onClick={() => router.push(`/library/${book.idBook}`)}
+      >
+        <div className="cursor-pointer">
           <h1 className="font-bold line-clamp-1">{book.title}</h1>
           <p className="text-sm text-gray-500 line-clamp-1">{book.author}</p>
         </div>
@@ -93,25 +103,23 @@ const BookCard = ({ book }: BookCardProps) => {
                 initial={{ scale: 0, rotate: -45 }}
                 animate={{
                   scale: [1, 1.2, 1],
-                  rotate: animationType === 'add' ? [0, 10, -10, 0] : [0, -5, 5, 0],
-                  opacity: [1, 0.8, 0]
+                  rotate:
+                    animationType === "add" ? [0, 10, -10, 0] : [0, -5, 5, 0],
+                  opacity: [1, 0.8, 0],
                 }}
                 transition={{ duration: 0.7 }}
-                className={`absolute -top-2 -right-2 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center ${animationType === 'add' ? 'bg-green-500' : 'bg-yellow-500'
-                  }`}
+                className={`absolute -top-2 -right-2 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center ${
+                  animationType === "add" ? "bg-green-500" : "bg-yellow-500"
+                }`}
               >
-                {animationType === 'add' ? (
-                  "+1"
-                ) : (
-                  <X size={12} />
-                )}
+                {animationType === "add" ? "+1" : <X size={12} />}
               </motion.span>
             )}
           </Button>
         </motion.div>
       </CardFooter>
     </Card>
-  )
-}
+  );
+};
 
-export default BookCard
+export default BookCard;

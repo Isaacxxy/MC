@@ -1,71 +1,28 @@
-export type Book = {
-  id: string;
-  title: string;
-  author: string;
-  imageWidth: number;
-  imageHeight: number;
-  imagePath: string;
-  rating?: number;
-  price: number;
-  description: string;
-  publisher: string;
-  publishDate: Date | string;
-  pages?: number;
-  language: string;
-  isValid: boolean;
-  category:
-    | "Science Fiction"
-    | "Fantasy"
-    | "Romance"
-    | "Mystery"
-    | "Thriller"
-    | "Non-Fiction"
-    | "Biography"
-    | "Self-Help"
-    | "Historical Fiction"
-    | "Young Adult"
-    | "Children's Literature";
-  isSold?: boolean;
-  reviews?: { user: string | "anonyme"; comment: string; rating: number }[];
-};
-
 export type Drink = {
   id: number;
   name: string;
   category:
     | "Latte"
-    | "Espresso Specialties"
+    | "Espresso Specialities"
     | "Black coffee"
     | "Hot & Iced Chocolates"
     | "Refreshas"
     | "Coffee Frappuccino"
     | "Cream Frappuccino"
     | "Teavana - Milk Tea"
-    | "Teavana - Iced Tea"
+    | "Teavan - Iced Tea"
     | "Teavana - Hot Teas"
     | "Waters & Juices";
-
   description: string;
   ingredients: string[];
   sizes: {
     small?: {
       price: number;
       stock: number;
-      points: number;
       sugarContent?: number;
     };
-    medium?: {
-      price: number;
-      stock: number;
-      points: number;
-      sugarContent?: number;
-    };
-    large?: {
-      price: number;
-      stock: number;
-      points: number;
-      sugarContent?: number;
-    };
+    medium?: { price: number; stock: number; sugarContent?: number };
+    large?: { price: number; stock: number; sugarContent?: number };
   };
   imageUrl: string;
   temperature: "hot" | "cold";
@@ -122,4 +79,43 @@ export type CartItem =
       quantity: number;
     };
 
-export type Notification = {};
+export type CouponType = {
+  idCoupon: number;
+  imageUrl: string;
+  title: string;
+  pointsRequired: number;
+  discount: number;
+};
+
+export interface Book {
+  idBook: string;
+  title: string;
+  author: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  imageUrl: string;
+  rating: number;
+  price: number;
+  stock: number;
+  description: string;
+  publisher: string;
+  publishDate: string;
+  pages: number;
+  language: string;
+  isValid: boolean;
+  category:
+    | ""
+    | "Science Fiction"
+    | "Historical Fiction"
+    | "Biography"
+    | "Fantasy"
+    | "Romance"
+    | "Mystery"
+    | "Thriller"
+    | "Self-Help"
+    | "Children's Literature"
+    | "Young Adult"
+    | "Non-Fiction";
+  issold: boolean;
+  reviews?: { user: string; comment: string; rating: number }[];
+}

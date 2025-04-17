@@ -1,0 +1,106 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum Category {
+  SCIENCE_FICTION
+  FANTASY
+  ROMANCE
+  MYSTERY
+  THRILLER
+  NON_FICTION
+  BIOGRAPHY
+  SELF_HELP
+  HISTORICAL_FICTION
+  YOUNG_ADULT
+  CHILDRENS_LITERATURE
+}
+
+model Book {
+  idBook      Int      @id @default(autoincrement())
+  title       String
+  author      String
+  publisher   String
+  publishDate DateTime
+  pages       Int
+  language    String
+  isValid     Boolean
+  price       Float
+  rating      Int
+  imageUrl    String
+  description String
+  stock       Int
+  category    Category
+  issold      Boolean
+  reviews     Review[] 
+}
+
+model Coupon {
+  idCoupon        Int    @id @default(autoincrement())
+  imageUrl        String
+  title           String
+  pointsRequired  Int
+  discount        Float
+}
+
+model Drink {
+  id          Int          @id @default(autoincrement())
+  name        String
+  category    DrinkCategory
+  description String
+  ingredients String[]     
+  imageUrl    String
+  temperature DrinkTemperature
+  rating      Float?       
+  sizes       DrinkSize[]      
+}
+
+model DrinkSize {
+  id          Int     @id @default(autoincrement())
+  drink       Drink   @relation(fields: [drinkId], references: [id])
+  drinkId     Int
+  size        SizeType
+  price       Float
+  stock       Int
+  sugarContent Float?
+}
+
+model Review {
+  id       Int    @id @default(autoincrement())
+  book    Book  @relation(fields: [bookId], references: [idBook])
+  bookId  Int
+  user     String
+  comment  String
+  rating   Int     
+}
+
+enum DrinkCategory {
+  Latte
+  Espresso_Specialities
+  Black_coffee
+  Hot_Iced_Chocolates
+  Refreshas
+  Coffee_Frappuccino
+  Cream_Frappuccino
+  Teavana_Milk_Tea
+  Teavan_Iced_Tea
+  Teavana_Hot_Teas
+  Waters_Juices
+}
+
+enum DrinkTemperature {
+  hot
+  cold
+}
+
+enum SizeType {
+  small
+  medium
+  large
+}

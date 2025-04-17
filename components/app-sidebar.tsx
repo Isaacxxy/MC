@@ -1,5 +1,5 @@
-'use client'
-import * as React from "react"
+"use client";
+import * as React from "react";
 
 import {
   Sidebar,
@@ -11,19 +11,15 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
   SidebarRail,
-} from "@/components/ui/sidebar"
-import { X } from 'lucide-react'
-import { motion } from 'framer-motion'
-import useUser from "@/context/UserContext"
-import { Button } from "./ui/button"
-
+} from "@/components/ui/sidebar";
+import { X } from "lucide-react";
+import { motion } from "framer-motion";
+import useUser from "@/context/UserContext";
+import { Button } from "./ui/button";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const { user, removeFromCart } = useUser()
+  const { user, removeFromCart } = useUser();
   return (
     <Sidebar {...props}>
       <SidebarContent>
@@ -52,7 +48,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                         className="w-16 h-16 object-cover rounded"
                       />
                       <div className="flex-1">
-                        <h3 className="font-medium line-clamp-2">{book.title}</h3>
+                        <h3 className="font-medium line-clamp-2">
+                          {book.title}
+                        </h3>
                         <p className="text-sm text-gray-500">${book.price}</p>
                       </div>
                       <Button
@@ -78,7 +76,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               <div className="flex justify-between mb-4">
                 <span>Total:</span>
                 <span className="font-bold">
-                  ${user.cart.reduce((sum, book) => sum + book.price, 0).toFixed(2)}
+                  $
+                  {user.cart
+                    .reduce((sum, book) => sum + book.price, 0)
+                    .toFixed(2)}
                 </span>
               </div>
               <Button className="w-full" disabled={user.cart.length === 0}>
@@ -90,5 +91,5 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
-  )
+  );
 }
