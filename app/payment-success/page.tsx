@@ -61,7 +61,7 @@ export default function PaymentSuccess({
                       return (
                         <div key={index} className="grid grid-cols-3 justify-start items-center">
                           <div className="col-span-1 flex justify-star items-end gap-2">
-                            <img src={book.imagePath} alt={book.title} width={40} />
+                            <img src={book.imageUrl} alt={book.title} width={40} />
                             <div className="flex flex-col gap-1">
                               <h2 className="text-left text-sm line-clamp-1">{book.title}</h2>
                               <p className="text-left line-clamp-1 text-xs">{book.author}</p>

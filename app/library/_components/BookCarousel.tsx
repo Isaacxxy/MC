@@ -1,15 +1,14 @@
-'use client'
-import React from 'react'
-import BookCard from './BookCard'
+"use client";
+import React from "react";
+import BookCard from "./BookCard";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
-import { Book as BookType } from '@/types/type'
-import { Separator } from '@/components/ui/separator'
+} from "@/components/ui/carousel";
+import { Book as BookType } from "@/types/type";
 
 interface BookCarouselProps {
   books: BookType[];
@@ -27,7 +26,9 @@ const BookCarousel = ({ books }: BookCarouselProps) => {
       {Object.entries(groupedBooks).map(([category, books]) => (
         <div key={category}>
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-2xl font-bold capitalize text-gray-800">{category}</h2>
+            <h2 className="text-2xl font-bold capitalize text-gray-800">
+              {category}
+            </h2>
           </div>
 
           <Carousel
@@ -38,13 +39,14 @@ const BookCarousel = ({ books }: BookCarouselProps) => {
               slidesToScroll: 1,
             }}
           >
-            <div className='mt-4'>
-              <CarouselContent className=''>
+            <div className="mt-4">
+              <CarouselContent className="">
                 {books.map((book) => (
-                  <CarouselItem key={book.id} className="basis-full sm:basis-1/2  lg:basis-1/5 px-2">
-                    <BookCard
-                      book={book}
-                    />
+                  <CarouselItem
+                    key={book.idBook}
+                    className="basis-full sm:basis-1/2  lg:basis-1/5 px-2"
+                  >
+                    <BookCard book={book} />
                   </CarouselItem>
                 ))}
               </CarouselContent>

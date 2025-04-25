@@ -12,7 +12,7 @@ import Image from 'next/image';
 const page = ({ params }: { params: { id: string } }) => {
   const { id } = params;
   console.log("books >>", books)
-  const book = books.find((b) => String(b.id) == String(id));
+  const book = books.find((b) => String(b.idBook) == String(id));
   console.log("book >>", book)
 
   const [comments, setComments] = useState<string[]>([]);
@@ -28,7 +28,7 @@ const page = ({ params }: { params: { id: string } }) => {
     <div className="mx-auto p-4 w-[80%]">
       <div className="flex flex-col md:flex-row gap-6">
         <Image
-          src={book.imagePath}
+          src={book.imageUrl}
           alt={`${book.title} cover`}
           width={200}
           height={300}

@@ -18,11 +18,12 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
 
-
-
-const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400", "700"] });
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 export const FloatingNav = ({
   navItems,
@@ -39,9 +40,9 @@ export const FloatingNav = ({
   const [scrollPosition, setScrollPosition] = useState(0);
   const [scrollDirection, setScrollDirection] = useState("up");
   const [visible, setVisible] = useState(true);
-  const router = useRouter()
+  const router = useRouter();
   const pathname = usePathname();
-  const { userId } = useAuth()
+  const { userId } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,7 +53,6 @@ export const FloatingNav = ({
       setScrollDirection(direction);
     };
 
-
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -61,10 +61,19 @@ export const FloatingNav = ({
   }, [scrollPosition]);
   if (pathname === '/payment-success' || pathname === '/profile' || pathname.startsWith('/profile') || pathname.startsWith('/library/')) return;
   return (
-    <div className={`${scrollPosition === 0
-      ? "z-[500] fixed top-0 w-full bg-transparent border-b border-transparent"
-      : `z-[500] fixed top-0 w-full border-b backdrop-blur-sm ${pathname === "/" ? "bg-white/5 border-neutral-200/5" : "bg-neutral-200/5 border-white/[0.1]"}`}
-      } ${scrollDirection === "down" ? "transition-transform duration-200 transform -translate-y-full" : "transition-transform duration-200 transform translate-y-0"}`}>
+    <div
+      className={`${scrollPosition === 0
+        ? "z-[500] fixed top-0 w-full bg-transparent border-b border-transparent"
+        : `z-[500] fixed top-0 w-full border-b backdrop-blur-sm ${pathname === "/"
+          ? "bg-white/5 border-neutral-200/5"
+          : "bg-neutral-200/5 border-white/[0.1]"
+        }`
+        }
+      } ${scrollDirection === "down"
+          ? "transition-transform duration-200 transform -translate-y-full"
+          : "transition-transform duration-200 transform translate-y-0"
+        }`}
+    >
       <AnimatePresence mode="wait">
         <motion.div
           initial={{
@@ -83,25 +92,49 @@ export const FloatingNav = ({
             className
           )}
         >
-          <h1 className="felx sm:hidden items-center justify-center space-x-2 text-2xl font-bold py-4 text-center dark:text-zinc-700 text-gray-100 mr-10 " ></h1>
-          <h1 className={`hidden sm:flex items-center justify-center space-x-2 text-2xl font-bold py-4 text-center mr-10 ${playfair.className} ${pathname === "/" ? "text-gray-100 selection:bg-indigo-700/[0.2] selection:text-indigo-500" : "text-black selection:bg-blue-100 selection:text-blue-500"}`}>Pagina & Espresso</h1>
+          <h1 className="felx sm:hidden items-center justify-center space-x-2 text-2xl font-bold py-4 text-center dark:text-zinc-700 text-gray-100 mr-10 "></h1>
+          <h1
+            className={`hidden sm:flex items-center justify-center space-x-2 text-2xl font-bold py-4 text-center mr-10 ${playfair.className
+              } ${pathname === "/"
+                ? "text-gray-100 selection:bg-indigo-700/[0.2] selection:text-indigo-500"
+                : "text-black selection:bg-blue-100 selection:text-blue-500"
+              }`}
+          >
+            Pagina & Espresso
+          </h1>
           <div className="relative items-center flex space-x-4">
             {navItems.map((navItem: any, idx: number) => (
               <Link
                 key={`link=${idx}`}
                 href={navItem.link}
-                className={`${pathname === "/" ? "text-zinc-100 hover:text-neutral-300" : "text-black hover:text-neutral-500"}
-                ${pathname === navItem.link ? "underline underline-offset-4" : ""}
+                className={`${pathname === "/"
+                  ? "text-zinc-100 hover:text-neutral-300"
+                  : "text-black hover:text-neutral-500"
+                  }
+                ${pathname === navItem.link
+                    ? "underline underline-offset-4"
+                    : ""
+                  }
               `}
               >
                 <span className="block sm:hidden px-3">{navItem.icon}</span>
-                <span className="hidden sm:block text-base text-center">{navItem.name}</span>
+                <span className="hidden sm:block text-base text-center">
+                  {navItem.name}
+                </span>
               </Link>
             ))}
           </div>
           <div className={`flex justify-center items-center z-[5000] gap-10 `}>
             <div className=" flex items-center justify-center w-fit h-fit flex-row-reverse gap-2">
-              <div onClick={() => { router.push('/cart') }} className={`relative cursor-pointer ${pathname === "/" ? "text-zinc-100 hover:text-neutral-300" : "text-black hover:text-neutral-500"}`}>
+              <div
+                onClick={() => {
+                  router.push("/cart");
+                }}
+                className={`relative cursor-pointer ${pathname === "/"
+                  ? "text-zinc-100 hover:text-neutral-300"
+                  : "text-black hover:text-neutral-500"
+                  }`}
+              >
                 <ShoppingBag size={24} />
                 {user.cart.length > 0 && (
                   <span className="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
@@ -112,8 +145,19 @@ export const FloatingNav = ({
               {userId && (
                 <div className="flex justify-center items-center gap-2">
                   <Dialog>
-                    <DialogTrigger className={`cursor-pointer ${pathname === "/" ? "text-zinc-100 hover:text-neutral-300" : "text-black hover:text-neutral-500"}`}>
-                      <Bell size={24} className={`cursor-pointer ${pathname === "/" ? "text-zinc-100 hover:text-neutral-300" : "text-black hover:text-neutral-500"}`} />
+                    <DialogTrigger
+                      className={`cursor-pointer ${pathname === "/"
+                        ? "text-zinc-100 hover:text-neutral-300"
+                        : "text-black hover:text-neutral-500"
+                        }`}
+                    >
+                      <Bell
+                        size={24}
+                        className={`cursor-pointer ${pathname === "/"
+                          ? "text-zinc-100 hover:text-neutral-300"
+                          : "text-black hover:text-neutral-500"
+                          }`}
+                      />
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-[425px] w-[50%]">
                       <DialogHeader>
@@ -128,24 +172,36 @@ export const FloatingNav = ({
                         </div>
                       </div>
                     </DialogContent>
-
                   </Dialog>
-                  <CirclePlus size={24} className={`cursor-pointer ${pathname === "/" ? "text-zinc-100 hover:text-neutral-300" : "text-black hover:text-neutral-500"}`} />
+
+                  <Link href={"/addBooks"}>
+                    <CirclePlus
+                      size={24}
+                      className={`cursor-pointer ${pathname === "/"
+                        ? "text-zinc-100 hover:text-neutral-300"
+                        : "text-black hover:text-neutral-500"
+                        }`}
+                    />
+                  </Link>
                 </div>
               )}
             </div>
             {userId && (
               <div className="flex items-center justify-center gap-10">
-                <div className={`flex items-center justify-center gap-1 cursor-pointer ${pathname === "/" ? "text-zinc-100 hover:text-neutral-300" : "text-black hover:text-neutral-500"}`}>
+                <div
+                  className={`flex items-center justify-center gap-1 cursor-pointer ${pathname === "/"
+                    ? "text-zinc-100 hover:text-neutral-300"
+                    : "text-black hover:text-neutral-500"
+                    }`}
+                >
                   <GiCoffeeBeans size={24} />
-                  <p className="text-xl font-semibold">
-                    {user.points}
-                  </p>
+                  <p className="text-xl font-semibold">{user.points}</p>
                 </div>
                 <div className="border rounded-full w-fit h-fit p-0 flex items-center border-gray-100/30 dark:border-gray-700">
                   <UserButton />
                 </div>
-              </div>)}
+              </div>
+            )}
             {!userId && (
               <div className="flex flex-row gap-2">
                 <div className="bg-black text-white text-sm p-2 rounded-lg">
@@ -154,15 +210,16 @@ export const FloatingNav = ({
                   </SignInButton>
                 </div>
                 <div className="bg-black text-white text-sm p-2 rounded-lg">
-                  <SignUpButton forceRedirectUrl="/" mode="redirect">Sign up</SignUpButton>
+                  <SignUpButton forceRedirectUrl="/" mode="redirect">
+                    Sign up
+                  </SignUpButton>
                 </div>
               </div>
             )}
           </div>
         </motion.div>
       </AnimatePresence>
-    </div >
-
+    </div>
   );
 };
 //TODO: Add a search bar here

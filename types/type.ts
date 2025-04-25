@@ -1,34 +1,3 @@
-export type Book = {
-  id: string;
-  title: string;
-  author: string;
-  imageWidth: number;
-  imageHeight: number;
-  imagePath: string;
-  rating?: number;
-  price: number;
-  description: string;
-  publisher: string;
-  publishDate: Date | string;
-  pages?: number;
-  language: string;
-  isValid: boolean;
-  category:
-    | "Science Fiction"
-    | "Fantasy"
-    | "Romance"
-    | "Mystery"
-    | "Thriller"
-    | "Non-Fiction"
-    | "Biography"
-    | "Self-Help"
-    | "Historical Fiction"
-    | "Young Adult"
-    | "Children's Literature";
-  isSold?: boolean;
-  reviews?: { user: string | "anonyme"; comment: string; rating: number }[];
-};
-
 export type Drink = {
   id: number;
   name: string;
@@ -44,27 +13,26 @@ export type Drink = {
     | "Teavana - Iced Tea"
     | "Teavana - Hot Teas"
     | "Waters & Juices";
-
   description: string;
   ingredients: string[];
   sizes: {
     small?: {
       price: number;
       stock: number;
-      points: number;
       sugarContent?: number;
+      points: number;
     };
     medium?: {
       price: number;
       stock: number;
-      points: number;
       sugarContent?: number;
+      points: number;
     };
     large?: {
       price: number;
       stock: number;
-      points: number;
       sugarContent?: number;
+      points: number;
     };
   };
   imageUrl: string;
@@ -122,4 +90,45 @@ export type CartItem =
       quantity: number;
     };
 
-export type Notification = {};
+export type CouponType = {
+  idCoupon: number;
+  imageUrl: string;
+  title: string;
+  pointsRequired: number;
+  discount: number;
+};
+
+export type BookStatus = "pending" | "rejected" | "approved" | "out of stock";
+
+export interface Book {
+  idBook: string;
+  title: string;
+  author: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  imageUrl: string;
+  rating: number;
+  price: number;
+  stock: number;
+  description: string;
+  publisher: string;
+  publishDate: string;
+  pages: number;
+  language: string;
+  isValid: BookStatus;
+  category:
+    | ""
+    | "Science Fiction"
+    | "Historical Fiction"
+    | "Biography"
+    | "Fantasy"
+    | "Romance"
+    | "Mystery"
+    | "Thriller"
+    | "Self-Help"
+    | "Children's Literature"
+    | "Young Adult"
+    | "Non-Fiction";
+  isSold: boolean;
+  reviews?: { user: string; comment: string; rating: number }[];
+}

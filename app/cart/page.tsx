@@ -77,10 +77,10 @@ const CartPage = () => {
             {bookItems.length > 0 && (
               <div className="space-y-4">
                 {bookItems.map((item) => (
-                  <div key={item.book.id} className="flex gap-4 p-4 border rounded-lg hover:shadow-md transition-shadow">
+                  <div key={item.book.idBook} className="flex gap-4 p-4 border rounded-lg hover:shadow-md transition-shadow">
                     <div className="relative w-24 h-32 flex-shrink-0">
                       <Image
-                        src={item.book.imagePath}
+                        src={item.book.imageUrl}
                         alt={item.book.title}
                         fill
                         className="object-cover rounded"
@@ -97,7 +97,7 @@ const CartPage = () => {
                       <Button
                         variant="ghost"
                         size="icon"
-                        onClick={() => removeFromCart(item.book.id, 'book')}
+                        onClick={() => removeFromCart(item.book.idBook, 'book')}
                         className="text-red-500 hover:text-red-700"
                       >
                         <Trash2 size={18} />
@@ -107,7 +107,7 @@ const CartPage = () => {
                           variant="outline"
                           size="icon"
                           onClick={() => updateCartItem(
-                            item.book.id,
+                            item.book.idBook,
                             'book',
                             { quantity: Math.max(1, item.quantity - 1) }
                           )}
@@ -120,7 +120,7 @@ const CartPage = () => {
                           variant="outline"
                           size="icon"
                           onClick={() => updateCartItem(
-                            item.book.id,
+                            item.book.idBook,
                             'book',
                             { quantity: item.quantity + 1 }
                           )}

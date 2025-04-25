@@ -1,0 +1,1794 @@
+[
+  {
+    "idBook": "book-1",
+    "title": "Book Title 1",
+    "author": "Author 1",
+    "imageWidth": 320,
+    "imageHeight": 500,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 3.7,
+    "price": 15.29,
+    "stock": 44,
+    "description": "This is the description for book 1.",
+    "publisher": "Publisher 6",
+    "publishDate": "2020-10-03",
+    "pages": 501,
+    "language": "English",
+    "isValid": "approved",
+    "category": "Thriller",
+    "isSold": false,
+    "reviews": [
+      {
+        "user": "user37",
+        "comment": "Review comment 0 for book 1",
+        "rating": 4
+      },
+      {
+        "user": "user94",
+        "comment": "Review comment 1 for book 1",
+        "rating": 1
+      },
+      {
+        "user": "user76",
+        "comment": "Review comment 2 for book 1",
+        "rating": 1
+      },
+      {
+        "user": "user36",
+        "comment": "Review comment 3 for book 1",
+        "rating": 1
+      }
+    ]
+  },
+  {
+    "idBook": "book-2",
+    "title": "Book Title 2",
+    "author": "Author 2",
+    "imageWidth": 437,
+    "imageHeight": 702,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 1.6,
+    "price": 45.26,
+    "stock": 50,
+    "description": "This is the description for book 2.",
+    "publisher": "Publisher 9",
+    "publishDate": "2022-03-28",
+    "pages": 737,
+    "language": "English",
+    "isValid": "approved",
+    "category": "Young Adult",
+    "isSold": true,
+    "reviews": [
+      {
+        "user": "user49",
+        "comment": "Review comment 0 for book 2",
+        "rating": 1
+      },
+      {
+        "user": "user30",
+        "comment": "Review comment 1 for book 2",
+        "rating": 1
+      }
+    ]
+  },
+  {
+    "idBook": "book-3",
+    "title": "Book Title 3",
+    "author": "Author 3",
+    "imageWidth": 515,
+    "imageHeight": 690,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 4.2,
+    "price": 38.75,
+    "stock": 17,
+    "description": "This is the description for book 3.",
+    "publisher": "Publisher 5",
+    "publishDate": "2024-04-03",
+    "pages": 302,
+    "language": "Spanish",
+    "isValid": "rejected",
+    "category": "Biography",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-4",
+    "title": "Book Title 4",
+    "author": "Author 4",
+    "imageWidth": 250,
+    "imageHeight": 450,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 2.9,
+    "price": 22.99,
+    "stock": 80,
+    "description": "This is the description for book 4.",
+    "publisher": "Publisher 1",
+    "publishDate": "2018-11-19",
+    "pages": 430,
+    "language": "French",
+    "isValid": "approved",
+    "category": "Fantasy",
+    "isSold": true,
+    "reviews": [
+      {
+        "user": "user12",
+        "comment": "Review comment 0 for book 4",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "idBook": "book-5",
+    "title": "Book Title 5",
+    "author": "Author 5",
+    "imageWidth": 360,
+    "imageHeight": 600,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 4.7,
+    "price": 30.45,
+    "stock": 0,
+    "description": "This is the description for book 5.",
+    "publisher": "Publisher 2",
+    "publishDate": "2023-07-21",
+    "pages": 510,
+    "language": "German",
+    "isValid": "out of stock",
+    "category": "Non-Fiction",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-6",
+    "title": "Book Title 6",
+    "author": "Author 6",
+    "imageWidth": 400,
+    "imageHeight": 640,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 3.3,
+    "price": 18.9,
+    "stock": 34,
+    "description": "This is the description for book 6.",
+    "publisher": "Publisher 7",
+    "publishDate": "2021-05-10",
+    "pages": 220,
+    "language": "English",
+    "isValid": "approved",
+    "category": "Science Fiction",
+    "isSold": false,
+    "reviews": [
+      {
+        "user": "user84",
+        "comment": "Review comment 0 for book 6",
+        "rating": 2
+      }
+    ]
+  },
+  {
+    "idBook": "book-7",
+    "title": "Book Title 7",
+    "author": "Author 7",
+    "imageWidth": 300,
+    "imageHeight": 550,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 2.4,
+    "price": 12.5,
+    "stock": 5,
+    "description": "This is the description for book 7.",
+    "publisher": "Publisher 8",
+    "publishDate": "2017-01-15",
+    "pages": 345,
+    "language": "Arabic",
+    "isValid": "rejected",
+    "category": "Romance",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-8",
+    "title": "Book Title 8",
+    "author": "Author 8",
+    "imageWidth": 600,
+    "imageHeight": 720,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 4.9,
+    "price": 49.99,
+    "stock": 25,
+    "description": "This is the description for book 8.",
+    "publisher": "Publisher 3",
+    "publishDate": "2019-09-12",
+    "pages": 615,
+    "language": "Spanish",
+    "isValid": "approved",
+    "category": "Self-Help",
+    "isSold": false,
+    "reviews": [
+      {
+        "user": "user22",
+        "comment": "Review comment 0 for book 8",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "idBook": "book-9",
+    "title": "Book Title 9",
+    "author": "Author 9",
+    "imageWidth": 410,
+    "imageHeight": 680,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 1.8,
+    "price": 28.1,
+    "stock": 90,
+    "description": "This is the description for book 9.",
+    "publisher": "Publisher 10",
+    "publishDate": "2016-06-30",
+    "pages": 410,
+    "language": "French",
+    "isValid": "approved",
+    "category": "Mystery",
+    "isSold": true,
+    "reviews": [
+      {
+        "user": "user53",
+        "comment": "Review comment 0 for book 9",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "idBook": "book-10",
+    "title": "Book Title 10",
+    "author": "Author 10",
+    "imageWidth": 280,
+    "imageHeight": 480,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 3.1,
+    "price": 19.75,
+    "stock": 10,
+    "description": "This is the description for book 10.",
+    "publisher": "Publisher 4",
+    "publishDate": "2020-02-18",
+    "pages": 290,
+    "language": "English",
+    "isValid": "pending",
+    "category": "Children's Literature",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-1",
+    "title": "Book Title 1",
+    "author": "Author 1",
+    "imageWidth": 320,
+    "imageHeight": 500,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 3.7,
+    "price": 15.29,
+    "stock": 44,
+    "description": "This is the description for book 1.",
+    "publisher": "Publisher 6",
+    "publishDate": "2020-10-03",
+    "pages": 501,
+    "language": "English",
+    "isValid": "approved",
+    "category": "Thriller",
+    "isSold": false,
+    "reviews": [
+      {
+        "user": "user37",
+        "comment": "Review comment 0 for book 1",
+        "rating": 4
+      },
+      {
+        "user": "user94",
+        "comment": "Review comment 1 for book 1",
+        "rating": 1
+      },
+      {
+        "user": "user76",
+        "comment": "Review comment 2 for book 1",
+        "rating": 1
+      },
+      {
+        "user": "user36",
+        "comment": "Review comment 3 for book 1",
+        "rating": 1
+      }
+    ]
+  },
+  {
+    "idBook": "book-2",
+    "title": "Book Title 2",
+    "author": "Author 2",
+    "imageWidth": 437,
+    "imageHeight": 702,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 1.6,
+    "price": 45.26,
+    "stock": 50,
+    "description": "This is the description for book 2.",
+    "publisher": "Publisher 9",
+    "publishDate": "2022-03-28",
+    "pages": 737,
+    "language": "English",
+    "isValid": "approved",
+    "category": "Young Adult",
+    "isSold": true,
+    "reviews": [
+      {
+        "user": "user49",
+        "comment": "Review comment 0 for book 2",
+        "rating": 1
+      },
+      {
+        "user": "user30",
+        "comment": "Review comment 1 for book 2",
+        "rating": 1
+      }
+    ]
+  },
+  {
+    "idBook": "book-3",
+    "title": "Book Title 3",
+    "author": "Author 3",
+    "imageWidth": 515,
+    "imageHeight": 690,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 4.2,
+    "price": 38.75,
+    "stock": 17,
+    "description": "This is the description for book 3.",
+    "publisher": "Publisher 5",
+    "publishDate": "2024-04-03",
+    "pages": 302,
+    "language": "Spanish",
+    "isValid": "rejected",
+    "category": "Biography",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-4",
+    "title": "Book Title 4",
+    "author": "Author 4",
+    "imageWidth": 250,
+    "imageHeight": 450,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 2.9,
+    "price": 22.99,
+    "stock": 80,
+    "description": "This is the description for book 4.",
+    "publisher": "Publisher 1",
+    "publishDate": "2018-11-19",
+    "pages": 430,
+    "language": "French",
+    "isValid": "approved",
+    "category": "Fantasy",
+    "isSold": true,
+    "reviews": [
+      {
+        "user": "user12",
+        "comment": "Review comment 0 for book 4",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "idBook": "book-5",
+    "title": "Book Title 5",
+    "author": "Author 5",
+    "imageWidth": 360,
+    "imageHeight": 600,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 4.7,
+    "price": 30.45,
+    "stock": 0,
+    "description": "This is the description for book 5.",
+    "publisher": "Publisher 2",
+    "publishDate": "2023-07-21",
+    "pages": 510,
+    "language": "German",
+    "isValid": "out of stock",
+    "category": "Non-Fiction",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-6",
+    "title": "Book Title 6",
+    "author": "Author 6",
+    "imageWidth": 400,
+    "imageHeight": 640,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 3.3,
+    "price": 18.9,
+    "stock": 34,
+    "description": "This is the description for book 6.",
+    "publisher": "Publisher 7",
+    "publishDate": "2021-05-10",
+    "pages": 220,
+    "language": "English",
+    "isValid": "approved",
+    "category": "Science Fiction",
+    "isSold": false,
+    "reviews": [
+      {
+        "user": "user84",
+        "comment": "Review comment 0 for book 6",
+        "rating": 2
+      }
+    ]
+  },
+  {
+    "idBook": "book-7",
+    "title": "Book Title 7",
+    "author": "Author 7",
+    "imageWidth": 300,
+    "imageHeight": 550,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 2.4,
+    "price": 12.5,
+    "stock": 5,
+    "description": "This is the description for book 7.",
+    "publisher": "Publisher 8",
+    "publishDate": "2017-01-15",
+    "pages": 345,
+    "language": "Arabic",
+    "isValid": "rejected",
+    "category": "Romance",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-8",
+    "title": "Book Title 8",
+    "author": "Author 8",
+    "imageWidth": 600,
+    "imageHeight": 720,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 4.9,
+    "price": 49.99,
+    "stock": 25,
+    "description": "This is the description for book 8.",
+    "publisher": "Publisher 3",
+    "publishDate": "2019-09-12",
+    "pages": 615,
+    "language": "Spanish",
+    "isValid": "approved",
+    "category": "Self-Help",
+    "isSold": false,
+    "reviews": [
+      {
+        "user": "user22",
+        "comment": "Review comment 0 for book 8",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "idBook": "book-9",
+    "title": "Book Title 9",
+    "author": "Author 9",
+    "imageWidth": 410,
+    "imageHeight": 680,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 1.8,
+    "price": 28.1,
+    "stock": 90,
+    "description": "This is the description for book 9.",
+    "publisher": "Publisher 10",
+    "publishDate": "2016-06-30",
+    "pages": 410,
+    "language": "French",
+    "isValid": "approved",
+    "category": "Mystery",
+    "isSold": true,
+    "reviews": [
+      {
+        "user": "user53",
+        "comment": "Review comment 0 for book 9",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "idBook": "book-10",
+    "title": "Book Title 10",
+    "author": "Author 10",
+    "imageWidth": 280,
+    "imageHeight": 480,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 3.1,
+    "price": 19.75,
+    "stock": 10,
+    "description": "This is the description for book 10.",
+    "publisher": "Publisher 4",
+    "publishDate": "2020-02-18",
+    "pages": 290,
+    "language": "English",
+    "isValid": "pending",
+    "category": "Children's Literature",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-1",
+    "title": "Book Title 1",
+    "author": "Author 1",
+    "imageWidth": 320,
+    "imageHeight": 500,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 3.7,
+    "price": 15.29,
+    "stock": 44,
+    "description": "This is the description for book 1.",
+    "publisher": "Publisher 6",
+    "publishDate": "2020-10-03",
+    "pages": 501,
+    "language": "English",
+    "isValid": "approved",
+    "category": "Thriller",
+    "isSold": false,
+    "reviews": [
+      {
+        "user": "user37",
+        "comment": "Review comment 0 for book 1",
+        "rating": 4
+      },
+      {
+        "user": "user94",
+        "comment": "Review comment 1 for book 1",
+        "rating": 1
+      },
+      {
+        "user": "user76",
+        "comment": "Review comment 2 for book 1",
+        "rating": 1
+      },
+      {
+        "user": "user36",
+        "comment": "Review comment 3 for book 1",
+        "rating": 1
+      }
+    ]
+  },
+  {
+    "idBook": "book-2",
+    "title": "Book Title 2",
+    "author": "Author 2",
+    "imageWidth": 437,
+    "imageHeight": 702,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 1.6,
+    "price": 45.26,
+    "stock": 50,
+    "description": "This is the description for book 2.",
+    "publisher": "Publisher 9",
+    "publishDate": "2022-03-28",
+    "pages": 737,
+    "language": "English",
+    "isValid": "approved",
+    "category": "Young Adult",
+    "isSold": true,
+    "reviews": [
+      {
+        "user": "user49",
+        "comment": "Review comment 0 for book 2",
+        "rating": 1
+      },
+      {
+        "user": "user30",
+        "comment": "Review comment 1 for book 2",
+        "rating": 1
+      }
+    ]
+  },
+  {
+    "idBook": "book-3",
+    "title": "Book Title 3",
+    "author": "Author 3",
+    "imageWidth": 515,
+    "imageHeight": 690,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 4.2,
+    "price": 38.75,
+    "stock": 17,
+    "description": "This is the description for book 3.",
+    "publisher": "Publisher 5",
+    "publishDate": "2024-04-03",
+    "pages": 302,
+    "language": "Spanish",
+    "isValid": "rejected",
+    "category": "Biography",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-4",
+    "title": "Book Title 4",
+    "author": "Author 4",
+    "imageWidth": 250,
+    "imageHeight": 450,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 2.9,
+    "price": 22.99,
+    "stock": 80,
+    "description": "This is the description for book 4.",
+    "publisher": "Publisher 1",
+    "publishDate": "2018-11-19",
+    "pages": 430,
+    "language": "French",
+    "isValid": "approved",
+    "category": "Fantasy",
+    "isSold": true,
+    "reviews": [
+      {
+        "user": "user12",
+        "comment": "Review comment 0 for book 4",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "idBook": "book-5",
+    "title": "Book Title 5",
+    "author": "Author 5",
+    "imageWidth": 360,
+    "imageHeight": 600,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 4.7,
+    "price": 30.45,
+    "stock": 0,
+    "description": "This is the description for book 5.",
+    "publisher": "Publisher 2",
+    "publishDate": "2023-07-21",
+    "pages": 510,
+    "language": "German",
+    "isValid": "out of stock",
+    "category": "Non-Fiction",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-6",
+    "title": "Book Title 6",
+    "author": "Author 6",
+    "imageWidth": 400,
+    "imageHeight": 640,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 3.3,
+    "price": 18.9,
+    "stock": 34,
+    "description": "This is the description for book 6.",
+    "publisher": "Publisher 7",
+    "publishDate": "2021-05-10",
+    "pages": 220,
+    "language": "English",
+    "isValid": "approved",
+    "category": "Science Fiction",
+    "isSold": false,
+    "reviews": [
+      {
+        "user": "user84",
+        "comment": "Review comment 0 for book 6",
+        "rating": 2
+      }
+    ]
+  },
+  {
+    "idBook": "book-7",
+    "title": "Book Title 7",
+    "author": "Author 7",
+    "imageWidth": 300,
+    "imageHeight": 550,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 2.4,
+    "price": 12.5,
+    "stock": 5,
+    "description": "This is the description for book 7.",
+    "publisher": "Publisher 8",
+    "publishDate": "2017-01-15",
+    "pages": 345,
+    "language": "Arabic",
+    "isValid": "rejected",
+    "category": "Romance",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-8",
+    "title": "Book Title 8",
+    "author": "Author 8",
+    "imageWidth": 600,
+    "imageHeight": 720,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 4.9,
+    "price": 49.99,
+    "stock": 25,
+    "description": "This is the description for book 8.",
+    "publisher": "Publisher 3",
+    "publishDate": "2019-09-12",
+    "pages": 615,
+    "language": "Spanish",
+    "isValid": "approved",
+    "category": "Self-Help",
+    "isSold": false,
+    "reviews": [
+      {
+        "user": "user22",
+        "comment": "Review comment 0 for book 8",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "idBook": "book-9",
+    "title": "Book Title 9",
+    "author": "Author 9",
+    "imageWidth": 410,
+    "imageHeight": 680,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 1.8,
+    "price": 28.1,
+    "stock": 90,
+    "description": "This is the description for book 9.",
+    "publisher": "Publisher 10",
+    "publishDate": "2016-06-30",
+    "pages": 410,
+    "language": "French",
+    "isValid": "approved",
+    "category": "Mystery",
+    "isSold": true,
+    "reviews": [
+      {
+        "user": "user53",
+        "comment": "Review comment 0 for book 9",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "idBook": "book-10",
+    "title": "Book Title 10",
+    "author": "Author 10",
+    "imageWidth": 280,
+    "imageHeight": 480,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 3.1,
+    "price": 19.75,
+    "stock": 10,
+    "description": "This is the description for book 10.",
+    "publisher": "Publisher 4",
+    "publishDate": "2020-02-18",
+    "pages": 290,
+    "language": "English",
+    "isValid": "pending",
+    "category": "Children's Literature",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-1",
+    "title": "Book Title 1",
+    "author": "Author 1",
+    "imageWidth": 320,
+    "imageHeight": 500,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 3.7,
+    "price": 15.29,
+    "stock": 44,
+    "description": "This is the description for book 1.",
+    "publisher": "Publisher 6",
+    "publishDate": "2020-10-03",
+    "pages": 501,
+    "language": "English",
+    "isValid": "approved",
+    "category": "Thriller",
+    "isSold": false,
+    "reviews": [
+      {
+        "user": "user37",
+        "comment": "Review comment 0 for book 1",
+        "rating": 4
+      },
+      {
+        "user": "user94",
+        "comment": "Review comment 1 for book 1",
+        "rating": 1
+      },
+      {
+        "user": "user76",
+        "comment": "Review comment 2 for book 1",
+        "rating": 1
+      },
+      {
+        "user": "user36",
+        "comment": "Review comment 3 for book 1",
+        "rating": 1
+      }
+    ]
+  },
+  {
+    "idBook": "book-2",
+    "title": "Book Title 2",
+    "author": "Author 2",
+    "imageWidth": 437,
+    "imageHeight": 702,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 1.6,
+    "price": 45.26,
+    "stock": 50,
+    "description": "This is the description for book 2.",
+    "publisher": "Publisher 9",
+    "publishDate": "2022-03-28",
+    "pages": 737,
+    "language": "English",
+    "isValid": "approved",
+    "category": "Young Adult",
+    "isSold": true,
+    "reviews": [
+      {
+        "user": "user49",
+        "comment": "Review comment 0 for book 2",
+        "rating": 1
+      },
+      {
+        "user": "user30",
+        "comment": "Review comment 1 for book 2",
+        "rating": 1
+      }
+    ]
+  },
+  {
+    "idBook": "book-3",
+    "title": "Book Title 3",
+    "author": "Author 3",
+    "imageWidth": 515,
+    "imageHeight": 690,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 4.2,
+    "price": 38.75,
+    "stock": 17,
+    "description": "This is the description for book 3.",
+    "publisher": "Publisher 5",
+    "publishDate": "2024-04-03",
+    "pages": 302,
+    "language": "Spanish",
+    "isValid": "rejected",
+    "category": "Biography",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-4",
+    "title": "Book Title 4",
+    "author": "Author 4",
+    "imageWidth": 250,
+    "imageHeight": 450,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 2.9,
+    "price": 22.99,
+    "stock": 80,
+    "description": "This is the description for book 4.",
+    "publisher": "Publisher 1",
+    "publishDate": "2018-11-19",
+    "pages": 430,
+    "language": "French",
+    "isValid": "approved",
+    "category": "Fantasy",
+    "isSold": true,
+    "reviews": [
+      {
+        "user": "user12",
+        "comment": "Review comment 0 for book 4",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "idBook": "book-5",
+    "title": "Book Title 5",
+    "author": "Author 5",
+    "imageWidth": 360,
+    "imageHeight": 600,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 4.7,
+    "price": 30.45,
+    "stock": 0,
+    "description": "This is the description for book 5.",
+    "publisher": "Publisher 2",
+    "publishDate": "2023-07-21",
+    "pages": 510,
+    "language": "German",
+    "isValid": "out of stock",
+    "category": "Non-Fiction",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-6",
+    "title": "Book Title 6",
+    "author": "Author 6",
+    "imageWidth": 400,
+    "imageHeight": 640,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 3.3,
+    "price": 18.9,
+    "stock": 34,
+    "description": "This is the description for book 6.",
+    "publisher": "Publisher 7",
+    "publishDate": "2021-05-10",
+    "pages": 220,
+    "language": "English",
+    "isValid": "approved",
+    "category": "Science Fiction",
+    "isSold": false,
+    "reviews": [
+      {
+        "user": "user84",
+        "comment": "Review comment 0 for book 6",
+        "rating": 2
+      }
+    ]
+  },
+  {
+    "idBook": "book-7",
+    "title": "Book Title 7",
+    "author": "Author 7",
+    "imageWidth": 300,
+    "imageHeight": 550,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 2.4,
+    "price": 12.5,
+    "stock": 5,
+    "description": "This is the description for book 7.",
+    "publisher": "Publisher 8",
+    "publishDate": "2017-01-15",
+    "pages": 345,
+    "language": "Arabic",
+    "isValid": "rejected",
+    "category": "Romance",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-8",
+    "title": "Book Title 8",
+    "author": "Author 8",
+    "imageWidth": 600,
+    "imageHeight": 720,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 4.9,
+    "price": 49.99,
+    "stock": 25,
+    "description": "This is the description for book 8.",
+    "publisher": "Publisher 3",
+    "publishDate": "2019-09-12",
+    "pages": 615,
+    "language": "Spanish",
+    "isValid": "approved",
+    "category": "Self-Help",
+    "isSold": false,
+    "reviews": [
+      {
+        "user": "user22",
+        "comment": "Review comment 0 for book 8",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "idBook": "book-9",
+    "title": "Book Title 9",
+    "author": "Author 9",
+    "imageWidth": 410,
+    "imageHeight": 680,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 1.8,
+    "price": 28.1,
+    "stock": 90,
+    "description": "This is the description for book 9.",
+    "publisher": "Publisher 10",
+    "publishDate": "2016-06-30",
+    "pages": 410,
+    "language": "French",
+    "isValid": "approved",
+    "category": "Mystery",
+    "isSold": true,
+    "reviews": [
+      {
+        "user": "user53",
+        "comment": "Review comment 0 for book 9",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "idBook": "book-10",
+    "title": "Book Title 10",
+    "author": "Author 10",
+    "imageWidth": 280,
+    "imageHeight": 480,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 3.1,
+    "price": 19.75,
+    "stock": 10,
+    "description": "This is the description for book 10.",
+    "publisher": "Publisher 4",
+    "publishDate": "2020-02-18",
+    "pages": 290,
+    "language": "English",
+    "isValid": "pending",
+    "category": "Children's Literature",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-1",
+    "title": "Book Title 1",
+    "author": "Author 1",
+    "imageWidth": 320,
+    "imageHeight": 500,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 3.7,
+    "price": 15.29,
+    "stock": 44,
+    "description": "This is the description for book 1.",
+    "publisher": "Publisher 6",
+    "publishDate": "2020-10-03",
+    "pages": 501,
+    "language": "English",
+    "isValid": "approved",
+    "category": "Thriller",
+    "isSold": false,
+    "reviews": [
+      {
+        "user": "user37",
+        "comment": "Review comment 0 for book 1",
+        "rating": 4
+      },
+      {
+        "user": "user94",
+        "comment": "Review comment 1 for book 1",
+        "rating": 1
+      },
+      {
+        "user": "user76",
+        "comment": "Review comment 2 for book 1",
+        "rating": 1
+      },
+      {
+        "user": "user36",
+        "comment": "Review comment 3 for book 1",
+        "rating": 1
+      }
+    ]
+  },
+  {
+    "idBook": "book-2",
+    "title": "Book Title 2",
+    "author": "Author 2",
+    "imageWidth": 437,
+    "imageHeight": 702,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 1.6,
+    "price": 45.26,
+    "stock": 50,
+    "description": "This is the description for book 2.",
+    "publisher": "Publisher 9",
+    "publishDate": "2022-03-28",
+    "pages": 737,
+    "language": "English",
+    "isValid": "approved",
+    "category": "Young Adult",
+    "isSold": true,
+    "reviews": [
+      {
+        "user": "user49",
+        "comment": "Review comment 0 for book 2",
+        "rating": 1
+      },
+      {
+        "user": "user30",
+        "comment": "Review comment 1 for book 2",
+        "rating": 1
+      }
+    ]
+  },
+  {
+    "idBook": "book-3",
+    "title": "Book Title 3",
+    "author": "Author 3",
+    "imageWidth": 515,
+    "imageHeight": 690,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 4.2,
+    "price": 38.75,
+    "stock": 17,
+    "description": "This is the description for book 3.",
+    "publisher": "Publisher 5",
+    "publishDate": "2024-04-03",
+    "pages": 302,
+    "language": "Spanish",
+    "isValid": "rejected",
+    "category": "Biography",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-4",
+    "title": "Book Title 4",
+    "author": "Author 4",
+    "imageWidth": 250,
+    "imageHeight": 450,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 2.9,
+    "price": 22.99,
+    "stock": 80,
+    "description": "This is the description for book 4.",
+    "publisher": "Publisher 1",
+    "publishDate": "2018-11-19",
+    "pages": 430,
+    "language": "French",
+    "isValid": "approved",
+    "category": "Fantasy",
+    "isSold": true,
+    "reviews": [
+      {
+        "user": "user12",
+        "comment": "Review comment 0 for book 4",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "idBook": "book-5",
+    "title": "Book Title 5",
+    "author": "Author 5",
+    "imageWidth": 360,
+    "imageHeight": 600,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 4.7,
+    "price": 30.45,
+    "stock": 0,
+    "description": "This is the description for book 5.",
+    "publisher": "Publisher 2",
+    "publishDate": "2023-07-21",
+    "pages": 510,
+    "language": "German",
+    "isValid": "out of stock",
+    "category": "Non-Fiction",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-6",
+    "title": "Book Title 6",
+    "author": "Author 6",
+    "imageWidth": 400,
+    "imageHeight": 640,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 3.3,
+    "price": 18.9,
+    "stock": 34,
+    "description": "This is the description for book 6.",
+    "publisher": "Publisher 7",
+    "publishDate": "2021-05-10",
+    "pages": 220,
+    "language": "English",
+    "isValid": "approved",
+    "category": "Science Fiction",
+    "isSold": false,
+    "reviews": [
+      {
+        "user": "user84",
+        "comment": "Review comment 0 for book 6",
+        "rating": 2
+      }
+    ]
+  },
+  {
+    "idBook": "book-7",
+    "title": "Book Title 7",
+    "author": "Author 7",
+    "imageWidth": 300,
+    "imageHeight": 550,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 2.4,
+    "price": 12.5,
+    "stock": 5,
+    "description": "This is the description for book 7.",
+    "publisher": "Publisher 8",
+    "publishDate": "2017-01-15",
+    "pages": 345,
+    "language": "Arabic",
+    "isValid": "rejected",
+    "category": "Romance",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-8",
+    "title": "Book Title 8",
+    "author": "Author 8",
+    "imageWidth": 600,
+    "imageHeight": 720,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 4.9,
+    "price": 49.99,
+    "stock": 25,
+    "description": "This is the description for book 8.",
+    "publisher": "Publisher 3",
+    "publishDate": "2019-09-12",
+    "pages": 615,
+    "language": "Spanish",
+    "isValid": "approved",
+    "category": "Self-Help",
+    "isSold": false,
+    "reviews": [
+      {
+        "user": "user22",
+        "comment": "Review comment 0 for book 8",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "idBook": "book-9",
+    "title": "Book Title 9",
+    "author": "Author 9",
+    "imageWidth": 410,
+    "imageHeight": 680,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 1.8,
+    "price": 28.1,
+    "stock": 90,
+    "description": "This is the description for book 9.",
+    "publisher": "Publisher 10",
+    "publishDate": "2016-06-30",
+    "pages": 410,
+    "language": "French",
+    "isValid": "approved",
+    "category": "Mystery",
+    "isSold": true,
+    "reviews": [
+      {
+        "user": "user53",
+        "comment": "Review comment 0 for book 9",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "idBook": "book-10",
+    "title": "Book Title 10",
+    "author": "Author 10",
+    "imageWidth": 280,
+    "imageHeight": 480,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 3.1,
+    "price": 19.75,
+    "stock": 10,
+    "description": "This is the description for book 10.",
+    "publisher": "Publisher 4",
+    "publishDate": "2020-02-18",
+    "pages": 290,
+    "language": "English",
+    "isValid": "pending",
+    "category": "Children's Literature",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-1",
+    "title": "Book Title 1",
+    "author": "Author 1",
+    "imageWidth": 320,
+    "imageHeight": 500,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 3.7,
+    "price": 15.29,
+    "stock": 44,
+    "description": "This is the description for book 1.",
+    "publisher": "Publisher 6",
+    "publishDate": "2020-10-03",
+    "pages": 501,
+    "language": "English",
+    "isValid": "approved",
+    "category": "Thriller",
+    "isSold": false,
+    "reviews": [
+      {
+        "user": "user37",
+        "comment": "Review comment 0 for book 1",
+        "rating": 4
+      },
+      {
+        "user": "user94",
+        "comment": "Review comment 1 for book 1",
+        "rating": 1
+      },
+      {
+        "user": "user76",
+        "comment": "Review comment 2 for book 1",
+        "rating": 1
+      },
+      {
+        "user": "user36",
+        "comment": "Review comment 3 for book 1",
+        "rating": 1
+      }
+    ]
+  },
+  {
+    "idBook": "book-2",
+    "title": "Book Title 2",
+    "author": "Author 2",
+    "imageWidth": 437,
+    "imageHeight": 702,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 1.6,
+    "price": 45.26,
+    "stock": 50,
+    "description": "This is the description for book 2.",
+    "publisher": "Publisher 9",
+    "publishDate": "2022-03-28",
+    "pages": 737,
+    "language": "English",
+    "isValid": "approved",
+    "category": "Young Adult",
+    "isSold": true,
+    "reviews": [
+      {
+        "user": "user49",
+        "comment": "Review comment 0 for book 2",
+        "rating": 1
+      },
+      {
+        "user": "user30",
+        "comment": "Review comment 1 for book 2",
+        "rating": 1
+      }
+    ]
+  },
+  {
+    "idBook": "book-3",
+    "title": "Book Title 3",
+    "author": "Author 3",
+    "imageWidth": 515,
+    "imageHeight": 690,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 4.2,
+    "price": 38.75,
+    "stock": 17,
+    "description": "This is the description for book 3.",
+    "publisher": "Publisher 5",
+    "publishDate": "2024-04-03",
+    "pages": 302,
+    "language": "Spanish",
+    "isValid": "rejected",
+    "category": "Biography",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-4",
+    "title": "Book Title 4",
+    "author": "Author 4",
+    "imageWidth": 250,
+    "imageHeight": 450,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 2.9,
+    "price": 22.99,
+    "stock": 80,
+    "description": "This is the description for book 4.",
+    "publisher": "Publisher 1",
+    "publishDate": "2018-11-19",
+    "pages": 430,
+    "language": "French",
+    "isValid": "approved",
+    "category": "Fantasy",
+    "isSold": true,
+    "reviews": [
+      {
+        "user": "user12",
+        "comment": "Review comment 0 for book 4",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "idBook": "book-5",
+    "title": "Book Title 5",
+    "author": "Author 5",
+    "imageWidth": 360,
+    "imageHeight": 600,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 4.7,
+    "price": 30.45,
+    "stock": 0,
+    "description": "This is the description for book 5.",
+    "publisher": "Publisher 2",
+    "publishDate": "2023-07-21",
+    "pages": 510,
+    "language": "German",
+    "isValid": "out of stock",
+    "category": "Non-Fiction",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-6",
+    "title": "Book Title 6",
+    "author": "Author 6",
+    "imageWidth": 400,
+    "imageHeight": 640,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 3.3,
+    "price": 18.9,
+    "stock": 34,
+    "description": "This is the description for book 6.",
+    "publisher": "Publisher 7",
+    "publishDate": "2021-05-10",
+    "pages": 220,
+    "language": "English",
+    "isValid": "approved",
+    "category": "Science Fiction",
+    "isSold": false,
+    "reviews": [
+      {
+        "user": "user84",
+        "comment": "Review comment 0 for book 6",
+        "rating": 2
+      }
+    ]
+  },
+  {
+    "idBook": "book-7",
+    "title": "Book Title 7",
+    "author": "Author 7",
+    "imageWidth": 300,
+    "imageHeight": 550,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 2.4,
+    "price": 12.5,
+    "stock": 5,
+    "description": "This is the description for book 7.",
+    "publisher": "Publisher 8",
+    "publishDate": "2017-01-15",
+    "pages": 345,
+    "language": "Arabic",
+    "isValid": "rejected",
+    "category": "Romance",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-8",
+    "title": "Book Title 8",
+    "author": "Author 8",
+    "imageWidth": 600,
+    "imageHeight": 720,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 4.9,
+    "price": 49.99,
+    "stock": 25,
+    "description": "This is the description for book 8.",
+    "publisher": "Publisher 3",
+    "publishDate": "2019-09-12",
+    "pages": 615,
+    "language": "Spanish",
+    "isValid": "approved",
+    "category": "Self-Help",
+    "isSold": false,
+    "reviews": [
+      {
+        "user": "user22",
+        "comment": "Review comment 0 for book 8",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "idBook": "book-9",
+    "title": "Book Title 9",
+    "author": "Author 9",
+    "imageWidth": 410,
+    "imageHeight": 680,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 1.8,
+    "price": 28.1,
+    "stock": 90,
+    "description": "This is the description for book 9.",
+    "publisher": "Publisher 10",
+    "publishDate": "2016-06-30",
+    "pages": 410,
+    "language": "French",
+    "isValid": "approved",
+    "category": "Mystery",
+    "isSold": true,
+    "reviews": [
+      {
+        "user": "user53",
+        "comment": "Review comment 0 for book 9",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "idBook": "book-10",
+    "title": "Book Title 10",
+    "author": "Author 10",
+    "imageWidth": 280,
+    "imageHeight": 480,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 3.1,
+    "price": 19.75,
+    "stock": 10,
+    "description": "This is the description for book 10.",
+    "publisher": "Publisher 4",
+    "publishDate": "2020-02-18",
+    "pages": 290,
+    "language": "English",
+    "isValid": "pending",
+    "category": "Children's Literature",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-1",
+    "title": "Book Title 1",
+    "author": "Author 1",
+    "imageWidth": 320,
+    "imageHeight": 500,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 3.7,
+    "price": 15.29,
+    "stock": 44,
+    "description": "This is the description for book 1.",
+    "publisher": "Publisher 6",
+    "publishDate": "2020-10-03",
+    "pages": 501,
+    "language": "English",
+    "isValid": "approved",
+    "category": "Thriller",
+    "isSold": false,
+    "reviews": [
+      {
+        "user": "user37",
+        "comment": "Review comment 0 for book 1",
+        "rating": 4
+      },
+      {
+        "user": "user94",
+        "comment": "Review comment 1 for book 1",
+        "rating": 1
+      },
+      {
+        "user": "user76",
+        "comment": "Review comment 2 for book 1",
+        "rating": 1
+      },
+      {
+        "user": "user36",
+        "comment": "Review comment 3 for book 1",
+        "rating": 1
+      }
+    ]
+  },
+  {
+    "idBook": "book-2",
+    "title": "Book Title 2",
+    "author": "Author 2",
+    "imageWidth": 437,
+    "imageHeight": 702,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 1.6,
+    "price": 45.26,
+    "stock": 50,
+    "description": "This is the description for book 2.",
+    "publisher": "Publisher 9",
+    "publishDate": "2022-03-28",
+    "pages": 737,
+    "language": "English",
+    "isValid": "approved",
+    "category": "Young Adult",
+    "isSold": true,
+    "reviews": [
+      {
+        "user": "user49",
+        "comment": "Review comment 0 for book 2",
+        "rating": 1
+      },
+      {
+        "user": "user30",
+        "comment": "Review comment 1 for book 2",
+        "rating": 1
+      }
+    ]
+  },
+  {
+    "idBook": "book-3",
+    "title": "Book Title 3",
+    "author": "Author 3",
+    "imageWidth": 515,
+    "imageHeight": 690,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 4.2,
+    "price": 38.75,
+    "stock": 17,
+    "description": "This is the description for book 3.",
+    "publisher": "Publisher 5",
+    "publishDate": "2024-04-03",
+    "pages": 302,
+    "language": "Spanish",
+    "isValid": "rejected",
+    "category": "Biography",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-4",
+    "title": "Book Title 4",
+    "author": "Author 4",
+    "imageWidth": 250,
+    "imageHeight": 450,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 2.9,
+    "price": 22.99,
+    "stock": 80,
+    "description": "This is the description for book 4.",
+    "publisher": "Publisher 1",
+    "publishDate": "2018-11-19",
+    "pages": 430,
+    "language": "French",
+    "isValid": "approved",
+    "category": "Fantasy",
+    "isSold": true,
+    "reviews": [
+      {
+        "user": "user12",
+        "comment": "Review comment 0 for book 4",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "idBook": "book-5",
+    "title": "Book Title 5",
+    "author": "Author 5",
+    "imageWidth": 360,
+    "imageHeight": 600,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 4.7,
+    "price": 30.45,
+    "stock": 0,
+    "description": "This is the description for book 5.",
+    "publisher": "Publisher 2",
+    "publishDate": "2023-07-21",
+    "pages": 510,
+    "language": "German",
+    "isValid": "out of stock",
+    "category": "Non-Fiction",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-6",
+    "title": "Book Title 6",
+    "author": "Author 6",
+    "imageWidth": 400,
+    "imageHeight": 640,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 3.3,
+    "price": 18.9,
+    "stock": 34,
+    "description": "This is the description for book 6.",
+    "publisher": "Publisher 7",
+    "publishDate": "2021-05-10",
+    "pages": 220,
+    "language": "English",
+    "isValid": "approved",
+    "category": "Science Fiction",
+    "isSold": false,
+    "reviews": [
+      {
+        "user": "user84",
+        "comment": "Review comment 0 for book 6",
+        "rating": 2
+      }
+    ]
+  },
+  {
+    "idBook": "book-7",
+    "title": "Book Title 7",
+    "author": "Author 7",
+    "imageWidth": 300,
+    "imageHeight": 550,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 2.4,
+    "price": 12.5,
+    "stock": 5,
+    "description": "This is the description for book 7.",
+    "publisher": "Publisher 8",
+    "publishDate": "2017-01-15",
+    "pages": 345,
+    "language": "Arabic",
+    "isValid": "rejected",
+    "category": "Romance",
+    "isSold": false,
+    "reviews": []
+  },
+  {
+    "idBook": "book-8",
+    "title": "Book Title 8",
+    "author": "Author 8",
+    "imageWidth": 600,
+    "imageHeight": 720,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 4.9,
+    "price": 49.99,
+    "stock": 25,
+    "description": "This is the description for book 8.",
+    "publisher": "Publisher 3",
+    "publishDate": "2019-09-12",
+    "pages": 615,
+    "language": "Spanish",
+    "isValid": "approved",
+    "category": "Self-Help",
+    "isSold": false,
+    "reviews": [
+      {
+        "user": "user22",
+        "comment": "Review comment 0 for book 8",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "idBook": "book-9",
+    "title": "Book Title 9",
+    "author": "Author 9",
+    "imageWidth": 410,
+    "imageHeight": 680,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 1.8,
+    "price": 28.1,
+    "stock": 90,
+    "description": "This is the description for book 9.",
+    "publisher": "Publisher 10",
+    "publishDate": "2016-06-30",
+    "pages": 410,
+    "language": "French",
+    "isValid": "approved",
+    "category": "Mystery",
+    "isSold": true,
+    "reviews": [
+      {
+        "user": "user53",
+        "comment": "Review comment 0 for book 9",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "idBook": "book-40",
+    "title": "Book Title 10",
+    "author": "Author 10",
+    "imageWidth": 280,
+    "imageHeight": 480,
+    "imageUrl": "https://i.harperapps.com/hcanz/covers/9780007580910/x293.jpg",
+    "rating": 3.1,
+    "price": 19.75,
+    "stock": 10,
+    "description": "This is the description for book 10.",
+    "publisher": "Publisher 4",
+    "publishDate": "2020-02-18",
+    "pages": 290,
+    "language": "English",
+    "isValid": "pending",
+    "category": "Children's Literature",
+    "isSold": false,
+    "reviews": []
+  }
+]

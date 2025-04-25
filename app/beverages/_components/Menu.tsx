@@ -182,7 +182,7 @@ const Menu = () => {
             <div className='grid grid-cols-2'>
               <div>
                 <img
-                  src={selectedDrink.imageUrl.replace('/drinks/output_images/', '/drinks/')}
+                  src={selectedDrink.imageUrl.replace('/drinks/output_images/', '/drinks/input_images/')}
                   alt={selectedDrink.name}
                   className="w-full h-auto rounded-lg object-cover"
                 />

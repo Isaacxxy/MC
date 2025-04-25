@@ -116,7 +116,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
       ...prev,
       cart: prev.cart.filter(item => {
         if (itemType === 'book') {
-          return !(item.itemType === 'book' && item.book.id === itemId);
+          return !(item.itemType === 'book' && item.book.idBook === itemId);
         } else {
           return !(item.itemType === 'drink' && item.drink.id === Number(itemId) && item.size === size);
         }
@@ -133,7 +133,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     setUser(prev => ({
       ...prev,
       cart: prev.cart.map(item => {
-        if (itemType === 'book' && item.itemType === 'book' && item.book.id === itemId) {
+        if (itemType === 'book' && item.itemType === 'book' && item.book.idBook === itemId) {
           return { ...item, ...updates };
         } else if (itemType === 'drink' && item.itemType === 'drink' && item.drink.id === Number(itemId) && item.size === size) {
           return { ...item, ...updates };
