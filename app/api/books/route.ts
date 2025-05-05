@@ -4,15 +4,23 @@ import fs from "fs";
 import path from "path";
 import { Category } from "@prisma/client";
 
-//OK
 export async function GET() {
   try {
     const books = await prisma.book.findMany({
       where: {
-        isValid: true,
+        isValid: "APPROVED",
+        stock: {
+          gt: 0,
+        },
       },
     });
-    return NextResponse.json(books);
+
+    const idMax = await prisma.book.aggregate({
+      _max: {
+        idBook: true,
+      },
+    });
+    return NextResponse.json({ books, idMax }, { status: 200 });
   } catch (error) {
     console.error("Error fetching books:", error);
     return NextResponse.json(
@@ -50,7 +58,6 @@ export async function POST(req: Request) {
     const publishDate = formData.get("publishDate") as string;
     const pages = formData.get("pages") as string;
     const language = formData.get("language") as string;
-    const isValid = formData.get("isValid") === "true";
     const stock = formData.get("stock") as string;
     const imageFile = formData.get("image") as File;
     const category = formData.get("category") as string;
@@ -86,7 +93,7 @@ export async function POST(req: Request) {
         pages: Number(pages),
         language: language,
         imageUrl: imageUrl,
-        isValid: Boolean(isValid),
+        isValid: "PENDING",
         stock: Number(stock),
         category: mappedCategory,
         issold: Boolean(issold),

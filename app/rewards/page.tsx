@@ -1,13 +1,12 @@
-import React from 'react'
-import LandingPage from "./_components/LandingPage"
-import DragDrop from './_components/DragDrop'
+import React from "react";
+import LandingPage from "./_components/LandingPage";
 
 const page = () => {
   return (
-    <div className='w-[80%] mx-auto mt-32'>
+    <div className="w-[80%] mx-auto mt-32">
       <LandingPage />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

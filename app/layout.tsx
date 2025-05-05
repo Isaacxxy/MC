@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
-import {
-  ClerkProvider,
-} from '@clerk/nextjs'
+import { ClerkProvider } from "@clerk/nextjs";
 import Footer from "@/components/layout/Footer";
 import { UserProvider } from "@/context/UserContext";
 import { Toaster } from "@/components/ui/toaster";

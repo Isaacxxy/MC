@@ -1,26 +1,91 @@
-'use client'
-import React, { useState } from 'react'
-import { books } from '@/data'
-import { Rating } from '@mui/material';
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
-import { ShoppingBag, Heart } from 'lucide-react';
-import { notFound } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import Image from 'next/image';
+"use client";
+import React, { useEffect, useState } from "react";
+import { books } from "@/data";
+import { Rating } from "@mui/material";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
+import { ShoppingBag, Heart } from "lucide-react";
+import { notFound } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { useUser as ClerkUser } from "@clerk/nextjs";
 
-
-const page = ({ params }: { params: { id: string } }) => {
+const Page = ({ params }: { params: { id: string } }) => {
   const { id } = params;
-  console.log("books >>", books)
+  console.log("books >>", books);
   const book = books.find((b) => String(b.idBook) == String(id));
-  console.log("book >>", book)
+  console.log("book >>", book);
 
   const [comments, setComments] = useState<string[]>([]);
   const [newComment, setNewComment] = useState("");
+
+  useEffect(() => {
+    const fetchComments = async () => {
+      try {
+        const bookId = book?.idBook;
+
+        if (!bookId) {
+          return;
+        }
+
+        const res = await fetch(`/api/comments/${bookId}`);
+
+        if (!res.ok) {
+          console.error("Échec de la requête:", res.status);
+          throw new Error("Failed to fetch comments");
+        }
+
+        const data = await res.json();
+        console.log("Données reçues:", data);
+        setComments(data.comments);
+      } catch (error) {
+        console.error("Erreur complète:", error);
+      }
+    };
+
+    fetchComments();
+  }, [book?.idBook]);
+
+  const handleSaveComment = async () => {
+    if (newComment.trim() === "" || !book?.idBook) return;
+
+    try {
+      const response = await fetch("/api/comments", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          bookId: book.idBook,
+          userId: ClerkUser().user?.id,
+          comment: newComment,
+        }),
+      });
+
+      if (!response.ok) {
+        console.error("Failed to save comment:", response.status);
+        throw new Error("Failed to save comment");
+      }
+
+      const data = await response.json();
+      console.log("Comment saved:", data);
+
+      setComments([...comments, newComment]);
+      setNewComment("");
+    } catch (error) {
+      console.error("Error saving comment:", error);
+    }
+  };
   const handleAddComment = () => {
     if (newComment.trim() !== "") {
       setComments([...comments, newComment]);
       setNewComment("");
+      handleSaveComment();
+      console.log("Comments>>", comments);
     }
   };
   if (!book) return notFound();
@@ -73,7 +138,7 @@ const page = ({ params }: { params: { id: string } }) => {
             <AccordionTrigger className="text-xl">
               More details
             </AccordionTrigger>
-            <AccordionContent className='text-base'>
+            <AccordionContent className="text-base">
               <div className="grid grid-cols-2 gap-2 text-gray-700">
                 {book.publisher && (
                   <>
@@ -84,18 +149,18 @@ const page = ({ params }: { params: { id: string } }) => {
                 <>
                   <span className="font-semibold">Publish Date:</span>
                   <span>
-                    {typeof book.publishDate === 'string'
-                      ? new Date(book.publishDate).toLocaleDateString('en-US', {
-                        day: 'numeric',
-                        month: 'long',
-                        year: 'numeric',
-                      })
-                      : 'Unknown publish day'}
+                    {typeof book.publishDate === "string"
+                      ? new Date(book.publishDate).toLocaleDateString("en-US", {
+                          day: "numeric",
+                          month: "long",
+                          year: "numeric",
+                        })
+                      : "Unknown publish day"}
                   </span>
                 </>
                 <>
                   <span className="font-semibold">Pages:</span>
-                  <span>{book.pages ? book.pages : 'Unknown pages'}</span>
+                  <span>{book.pages ? book.pages : "Unknown pages"}</span>
                 </>
                 {book.language && (
                   <>
@@ -142,7 +207,7 @@ const page = ({ params }: { params: { id: string } }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default Page;

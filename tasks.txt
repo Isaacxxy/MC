@@ -1,0 +1,19 @@
+gerer les payments afficher que les produits des utilisateurs qui ont été vendus
+idSeller idbook buyers(int) total action(pour)
+
+quand on achete un livre -> stock - quantité
+
+cart la quantité ne dois pas depasser le stock => max
+
+
+
+Les taches effectuées ce soir:
+Quand un user achete un coupon les point change meme dans la bdd
+Quand un user gagne des points, ca change meme dans la base de données
+Recuperation des coupons de chaque utilisateur a partir de la bdd
+recuperation des livre de la bdd
+recuperation des commentaire d'un livre
+ajout des coupons dans la bdd
+recuperation des coupons disponible pour les afficher dans le menu coupons
+
+l'ajout des commentaire reste a tester pour demain

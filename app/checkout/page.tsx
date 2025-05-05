@@ -1,15 +1,14 @@
-'use client'
+"use client";
 import React, { useState } from "react";
 import Link from "next/link";
 import CheckoutPage from "@/components/CheckoutPage";
 import convertToSubcurrency from "@/lib/convertToSubcurrency";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import useUser from '@/context/UserContext';
-import { Separator } from "@/components/ui/separator"
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { useUser as useClerkUser } from '@clerk/nextjs';
-import { CardStack } from '@/components/ui/card-stack';
+import useUser from "@/context/UserContext";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { useUser as useClerkUser } from "@clerk/nextjs";
+import { CardStack } from "@/components/ui/card-stack";
 import { ThreeDMarquee } from "@/components/ui/3d-marquee";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import { CouponCard } from "@/components/coupon";
@@ -22,15 +21,12 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import DragDrop from "../rewards/_components/DragDrop";
-import { Label } from "@/components/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { images } from "@/data"
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { images } from "@/data";
 import { toast } from "@/hooks/use-toast";
-
-
 
 if (process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY === undefined) {
   throw new Error("NEXT_PUBLIC_STRIPE_PUBLIC_KEY is not defined");
@@ -38,25 +34,29 @@ if (process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY === undefined) {
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
-
 export default function Home() {
   const ClerkUser = useClerkUser();
-  console.log("ClerkUser >>", ClerkUser);
-  const emailAddress = ClerkUser.user?.emailAddresses[0].emailAddress;
-  console.log("emailAddress >>", emailAddress)
 
-  const { user, removeFromWallet } = useUser();
+  console.log("ClerkUser >>", ClerkUser);
+
+  const emailAddress = ClerkUser.user?.emailAddresses[0].emailAddress;
+  console.log("emailAddress >>", emailAddress);
+
+  const { user } = useUser();
   console.log("user >>", user);
 
-  const bookItems = user.cart.filter(item => item.itemType === 'book');
-  const drinkItems = user.cart.filter(item => item.itemType === 'drink');
+  const bookItems = user.cart.filter((item) => item.itemType === "book");
+  const drinkItems = user.cart.filter((item) => item.itemType === "drink");
 
   const totalBookPrice = bookItems.reduce(
-    (sum, item) => sum + (item.book.price * item.quantity), 0
+    (sum, item) => sum + item.book.price * item.quantity,
+    0
   );
 
   const totalDrinkPrice = drinkItems.reduce(
-    (sum, item) => sum + ((item.drink.sizes[item.size]?.price ?? 0) * item.quantity), 0
+    (sum, item) =>
+      sum + (item.drink.sizes[item.size]?.price ?? 0) * item.quantity,
+    0
   );
 
   console.log("totalBookPrice >>", totalBookPrice);
@@ -64,36 +64,38 @@ export default function Home() {
   console.log("bookItems >>", bookItems);
   console.log("drinkItems >>", drinkItems);
 
-
   let amount = (totalBookPrice + totalDrinkPrice).toFixed(2);
+  console.log("User id>>", ClerkUser.user?.id);
+  console.log("Amount>>", amount);
 
   const [selectedCouponId, setSelectedCouponId] = useState<string | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const calculateTotalWithCoupon = () => {
     const subtotal = parseFloat(amount);
-    const selectedCoupon = user.wallet.find(c => c.id === selectedCouponId);
+    const selectedCoupon = user.wallet.find((c) => c.id === selectedCouponId);
 
     if (!selectedCoupon) {
       return {
         originalAmount: subtotal,
         discount: 0,
         finalAmount: subtotal,
-        coupon: null
+        coupon: null,
       };
     }
 
-    const discount = subtotal * selectedCoupon.discount / 100;
+    const discount = (subtotal * selectedCoupon.discount) / 100;
     const finalAmount = subtotal - discount;
 
     return {
       originalAmount: subtotal,
       discount,
       finalAmount,
-      coupon: selectedCoupon
+      coupon: selectedCoupon,
     };
   };
 
-  const { originalAmount, discount, finalAmount, coupon } = calculateTotalWithCoupon();
+  const { originalAmount, discount, finalAmount, coupon } =
+    calculateTotalWithCoupon();
 
   const handleApplyCoupon = () => {
     if (!selectedCouponId) return;
@@ -111,7 +113,7 @@ export default function Home() {
     {
       id: 0,
       content: (
-        <div className=''>
+        <div className="">
           <div className="flex justify-between items-center relative z-10">
             <div className="w-12 h-8 bg-gradient-to-r from-yellow-100 to-yellow-50 rounded-md"></div>
             <div className="flex space-x-2">
@@ -120,7 +122,9 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-6 relative z-10">
-            <p className="tracking-[0.2em] text-lg font-medium">Connected to iPhone</p>
+            <p className="tracking-[0.2em] text-lg font-medium">
+              Connected to iPhone
+            </p>
             <div className="flex items-center gap-2 mt-3">
               <p className="text-sm opacity-90">Apple Pay</p>
               <span className="text-sm opacity-75">•</span>
@@ -134,7 +138,7 @@ export default function Home() {
     {
       id: 1,
       content: (
-        <div className=''>
+        <div className="">
           <div className="flex justify-between items-center relative z-10">
             <div className="w-12 h-8 bg-gradient-to-r from-yellow-100 to-yellow-50 rounded-md"></div>
             <div className="flex space-x-2">
@@ -159,7 +163,7 @@ export default function Home() {
     {
       id: 2,
       content: (
-        <div className=''>
+        <div className="">
           <div className="flex justify-between items-center relative z-10">
             <div className="w-12 h-8 bg-gradient-to-r from-yellow-100 to-yellow-50 rounded-md"></div>
             <div className="flex space-x-2">
@@ -168,7 +172,9 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-6 relative z-10">
-            <p className="tracking-[0.2em] text-lg font-medium">**** **** **** 2834</p>
+            <p className="tracking-[0.2em] text-lg font-medium">
+              **** **** **** 2834
+            </p>
             <div className="flex items-center gap-2 mt-3">
               <p className="text-sm opacity-90">Credit Card</p>
               <span className="text-sm opacity-75">•</span>
@@ -183,61 +189,77 @@ export default function Home() {
 
   return (
     <main className="py-16 px-4 mt-20">
-      <div className='max-w-6xl mx-auto'>
-        <div className='text-center mb-12'>
-          <h1 className="text-4xl font-bold mb-4">Complete Your
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold mb-4">
+            Complete Your
             <span className="text-[#FF7757]"> Purchase</span>
           </h1>
-          <p className="text-gray-600">Feel free to pay with your credit card, or use your reward points to get an instant reduction on your total.</p>
+          <p className="text-gray-600">
+            Feel free to pay with your credit card, or use your reward points to
+            get an instant reduction on your total.
+          </p>
         </div>
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <Dialog>
             <DialogTrigger asChild>
-              <div className='bg-[#F9FAFB] rounded-[18px] p-4 border border-[#E1E1E1] shadow-[0px_37px_10px_0px_rgba(0,0,0,0.00),_0px_24px_10px_0px_rgba(0,0,0,0.01),_0px_13px_8px_0px_rgba(0,0,0,0.02),_0px_6px_6px_0px_rgba(0,0,0,0.03),_0px_1px_3px_0px_rgba(0,0,0,0.04)] my-5 cursor-pointer'>
-                <div className='space-y-4 rounded-xl p-4 border border-[#E1E1E1] bg-white w-full h-[320px] overflow-hidden'>
+              <div className="bg-[#F9FAFB] rounded-[18px] p-4 border border-[#E1E1E1] shadow-[0px_37px_10px_0px_rgba(0,0,0,0.00),_0px_24px_10px_0px_rgba(0,0,0,0.01),_0px_13px_8px_0px_rgba(0,0,0,0.02),_0px_6px_6px_0px_rgba(0,0,0,0.03),_0px_1px_3px_0px_rgba(0,0,0,0.04)] my-5 cursor-pointer">
+                <div className="space-y-4 rounded-xl p-4 border border-[#E1E1E1] bg-white w-full h-[320px] overflow-hidden">
                   <ThreeDMarquee images={images} className="h-full" />
                 </div>
-                <h3 className="text-xl font-bold mt-6 mb-2 transform-none" >Brew & Earn</h3>
-                <p className="text-gray-500 text-sm leading-relaxed opacity: 1">Explore exclusive coupons and discover exciting rewards tailored just for you</p>
+                <h3 className="text-xl font-bold mt-6 mb-2 transform-none">
+                  Brew & Earn
+                </h3>
+                <p className="text-gray-500 text-sm leading-relaxed opacity: 1">
+                  Explore exclusive coupons and discover exciting rewards
+                  tailored just for you
+                </p>
               </div>
             </DialogTrigger>
             <DialogContent className="flex flex-col justify-start items-center gap-4">
               <DialogHeader className="flex flex-col gap-4">
                 <DialogTitle className="text-center">Buy Coupons</DialogTitle>
                 <DialogDescription className="text-center">
-                  the more you <span className="text-[#FF7757]">shop</span>, the more you <span className="text-[#FF7757]">earn!</span>
+                  the more you <span className="text-[#FF7757]">shop</span>, the
+                  more you <span className="text-[#FF7757]">earn!</span>
                 </DialogDescription>
               </DialogHeader>
               <div className="grid grid-cols-2 gap-4 mt-4">
                 {coupons.map((coupon) => (
-                  <div className="flex flex-col gap-2 items-center justify-center">
+                  <div
+                    key={coupon.id}
+                    className="flex flex-col gap-2 items-center justify-center"
+                  >
                     <CouponCard coupons={coupon} badge />
-                    <p className="text-center text-lg font-medium">{coupon.title}</p>
+                    <p className="text-center text-lg font-medium">
+                      {coupon.title}
+                    </p>
                   </div>
                 ))}
               </div>
               <DialogFooter>
                 <Link href={"/rewards"}>
-                  <Button>
-                    Go to Rewards
-                  </Button>
+                  <Button>Go to Rewards</Button>
                 </Link>
               </DialogFooter>
             </DialogContent>
           </Dialog>
-          <Dialog >
+          <Dialog>
             <DialogTrigger asChild>
-              <div className='bg-[#F9FAFB] rounded-[18px] p-4 border border-[#E1E1E1] shadow-[0px_37px_10px_0px_rgba(0,0,0,0.00),_0px_24px_10px_0px_rgba(0,0,0,0.01),_0px_13px_8px_0px_rgba(0,0,0,0.02),_0px_6px_6px_0px_rgba(0,0,0,0.03),_0px_1px_3px_0px_rgba(0,0,0,0.04)] cursor-pointer'>
-                <div className='space-y-4 rounded-xl p-4 border border-[#E1E1E1] bg-white h-[320px]'>
+              <div className="bg-[#F9FAFB] rounded-[18px] p-4 border border-[#E1E1E1] shadow-[0px_37px_10px_0px_rgba(0,0,0,0.00),_0px_24px_10px_0px_rgba(0,0,0,0.01),_0px_13px_8px_0px_rgba(0,0,0,0.02),_0px_6px_6px_0px_rgba(0,0,0,0.03),_0px_1px_3px_0px_rgba(0,0,0,0.04)] cursor-pointer">
+                <div className="space-y-4 rounded-xl p-4 border border-[#E1E1E1] bg-white h-[320px]">
                   <div className="mb-8 text-center">
                     {coupon ? (
                       <>
-                        <p className="text-gray-500 line-through">${originalAmount.toFixed(2)}</p>
+                        <p className="text-gray-500 line-through">
+                          ${originalAmount.toFixed(2)}
+                        </p>
                         <h2 className="text-[32px] font-bold bg-clip-text text-transparent bg-gradient-to-b from-[#333333] via-[#5E5E5E] to-[#000000]">
                           ${finalAmount.toFixed(2)}
                         </h2>
                         <p className="text-green-600 text-sm mb-1">
-                          You saved ${discount.toFixed(2)} ({coupon.discount}% off)
+                          You saved ${discount.toFixed(2)} ({coupon.discount}%
+                          off)
                         </p>
                       </>
                     ) : (
@@ -252,41 +274,49 @@ export default function Home() {
                   <CardStack items={CARDS} />
                 </div>
                 <h3 className="text-xl font-bold mt-6 mb-2">Easy payments</h3>
-                <p className="text-gray-500 text-sm leading-relaxed opacity:0">we accept all major credit and debit cards, making your checkout process quick and hassle-free.</p>
+                <p className="text-gray-500 text-sm leading-relaxed opacity:0">
+                  we accept all major credit and debit cards, making your
+                  checkout process quick and hassle-free.
+                </p>
               </div>
             </DialogTrigger>
             <DialogContent className="w-[80%] min-h-[40vh] p-10 flex flex-col gap-10">
               <DialogHeader className="flex flex-col gap-4">
-                <DialogTitle className="text-center text-xl font-semibold uppercase">Easy payments</DialogTitle>
+                <DialogTitle className="text-center text-xl font-semibold uppercase">
+                  Easy payments
+                </DialogTitle>
               </DialogHeader>
               <div className="w-full">
                 <Elements
                   stripe={stripePromise}
                   options={{
                     mode: "payment",
-                    amount: convertToSubcurrency(parseFloat(amount) === 0 ? parseFloat('20') :
-                      (
-                        coupon ?
-                          parseFloat(finalAmount.toFixed(2))
-                          :
-                          parseFloat(originalAmount.toFixed(2))
-                      )),
+                    amount: convertToSubcurrency(
+                      parseFloat(amount) === 0
+                        ? parseFloat("20")
+                        : coupon
+                        ? parseFloat(finalAmount.toFixed(2))
+                        : parseFloat(originalAmount.toFixed(2))
+                    ),
                     currency: "usd",
                   }}
                 >
-                  <CheckoutPage amount={parseFloat(amount) === 0 ? parseFloat('20') : (
-                    coupon ?
-                      parseFloat(finalAmount.toFixed(2))
-                      :
-                      parseFloat(originalAmount.toFixed(2))
-                  )}
-                    appliedCouponId={selectedCouponId} />
+                  <CheckoutPage
+                    amount={
+                      parseFloat(amount) === 0
+                        ? parseFloat("20")
+                        : coupon
+                        ? parseFloat(finalAmount.toFixed(2))
+                        : parseFloat(originalAmount.toFixed(2))
+                    }
+                    appliedCouponId={selectedCouponId}
+                  />
                 </Elements>
               </div>
             </DialogContent>
           </Dialog>
-          <div className='bg-[#F9FAFB] rounded-[18px] p-4 border border-[#E1E1E1] shadow-[0px_37px_10px_0px_rgba(0,0,0,0.00),_0px_24px_10px_0px_rgba(0,0,0,0.01),_0px_13px_8px_0px_rgba(0,0,0,0.02),_0px_6px_6px_0px_rgba(0,0,0,0.03),_0px_1px_3px_0px_rgba(0,0,0,0.04)] my-5'>
-            <div className='space-y-4 rounded-xl p-4 border border-[#E1E1E1] bg-white h-[320px] flex flex-col justify-center items-center '>
+          <div className="bg-[#F9FAFB] rounded-[18px] p-4 border border-[#E1E1E1] shadow-[0px_37px_10px_0px_rgba(0,0,0,0.00),_0px_24px_10px_0px_rgba(0,0,0,0.01),_0px_13px_8px_0px_rgba(0,0,0,0.02),_0px_6px_6px_0px_rgba(0,0,0,0.03),_0px_1px_3px_0px_rgba(0,0,0,0.04)] my-5">
+            <div className="space-y-4 rounded-xl p-4 border border-[#E1E1E1] bg-white h-[320px] flex flex-col justify-center items-center ">
               <div className="w-full">
                 <AnimatedTestimonials testimonials={coupons} />
               </div>
@@ -294,15 +324,22 @@ export default function Home() {
             <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
               <DialogTrigger className="cursor-pointer" asChild>
                 <div>
-                  <h3 className="text-xl font-bold mt-6 mb-2 transform-none" >Use your wallet</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed opacity: 1">Your wallet might hold a surprise. Open it to discover your coupons and rewards, the perfect discount could be waiting to sweeten your purchase!</p>
+                  <h3 className="text-xl font-bold mt-6 mb-2 transform-none">
+                    Use your wallet
+                  </h3>
+                  <p className="text-gray-500 text-sm leading-relaxed opacity: 1">
+                    Your wallet might hold a surprise. Open it to discover your
+                    coupons and rewards, the perfect discount could be waiting
+                    to sweeten your purchase!
+                  </p>
                 </div>
               </DialogTrigger>
               <DialogContent className="w-[50%]">
                 <DialogHeader className="flex flex-col gap-4">
                   <DialogTitle className="text-center">Your Wallet</DialogTitle>
                   <DialogDescription className="text-center">
-                    Got <span className="text-[#FF7757]">Coupons?</span> Let's <span className="text-[#FF7757]">Use Them!</span>
+                    Got <span className="text-[#FF7757]">Coupons?</span>{" "}
+                    Let&apos;s <span className="text-[#FF7757]">Use Them!</span>
                   </DialogDescription>
                 </DialogHeader>
                 <div>
@@ -323,16 +360,24 @@ export default function Home() {
                             className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-gray-50"
                           >
                             <RadioGroupItem value={coupon.id} id={coupon.id} />
-                            <Label htmlFor={coupon.id} className="flex-1 cursor-pointer">
+                            <Label
+                              htmlFor={coupon.id}
+                              className="flex-1 cursor-pointer"
+                            >
                               <div className="flex justify-between items-center">
                                 <div>
                                   <p className="font-medium">{coupon.title}</p>
                                   <p className="text-sm text-gray-500">
-                                    {coupon.pointsRequired} points • {coupon.discount}% off
+                                    {coupon.pointsRequired} points •{" "}
+                                    {coupon.discount}% off
                                   </p>
                                 </div>
                                 <span className="text-green-600 font-bold">
-                                  -${(originalAmount * coupon.discount / 100).toFixed(2)}
+                                  -$
+                                  {(
+                                    (originalAmount * coupon.discount) /
+                                    100
+                                  ).toFixed(2)}
                                 </span>
                               </div>
                             </Label>
@@ -363,8 +408,7 @@ export default function Home() {
             </Dialog>
           </div>
         </div>
-
       </div>
-    </main >
+    </main>
   );
 }
